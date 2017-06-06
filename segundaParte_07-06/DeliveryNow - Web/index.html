@@ -52,19 +52,22 @@
                         <a href="#page-top"></a>
                     </li>
 					<li class="page-scroll">
-                        <a href="#portfolio"><!--Portfolio-->Fornecedor de pedido</a>
+                        <a href="#portfolio"><!--Portfolio-->Fornecedores</a>
                     </li>
                     <li class="page-scroll">
-                        <a href="#cliente"><!--Portfolio-->Cliente</a>
+                        <a href="#cliente">Clientes</a>
                     </li>
                     <li class="page-scroll">
-                        <a href="#pedido"><!--About-->Pedido</a>
+                        <a href="#pedido">Pedidos</a>
                     </li>
 					<li class="page-scroll">
-                        <a href="#entregador"><!--About-->Entregador</a>
+                        <a href="#entregador">Entregadores</a>
                     </li>
 					<li class="page-scroll">
-                        <a href="#veiculo"><!--About-->Veículo</a>
+                        <a href="#entregas">Entregas</a>
+                    </li>
+					<li class="page-scroll">
+                        <a href="#veiculo"><!--About-->Veículos</a>
                     </li>
                     <li class="page-scroll">
                         <a href="#contact">Contato</a>
@@ -97,12 +100,16 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2>Fornecedores de Pedidos</h2>
-					<h4> Cadastre sua empresa e agilize suas entregas! </h4>
-					<button class="page-scroll btn btn-success btn-lg">
-                        <a href="#cadastrar" class="btn btn-success btn-lg">Cadastrar</a>
-                    </button>
-                    <hr class="star-primary">
+                    <h2>Fornecedores</h2>
+					<hr class="star-primary">
+					<h4> Cadastre sua empresa, seja um fornecedor de pedidos e agilize suas entregas! </h4>
+					<div class="row">
+                        <div class="form-group col-xs-12">
+							<button class="page-scroll btn btn-success btn-lg">
+								<a href="#cadastrar" class="btn-success">Cadastrar</a>
+							</button>
+						</div>
+					</div>				
                 </div>
             </div>
             <div class="row">
@@ -113,7 +120,7 @@
                                 <i class="fa fa-search-plus fa-3x"></i>
                             </div>
                         </div>
-                        <img src="img/portfolio/cabin.png" class="img-responsive" alt="Cabin">
+                        <img src="img/portfolio/Churrasco.png" class="img-responsive" alt="Cabin">
                     </a>
                 </div>
                 <div class="col-sm-4 portfolio-item">
@@ -123,7 +130,7 @@
                                 <i class="fa fa-search-plus fa-3x"></i>
                             </div>
                         </div>
-                        <img src="img/portfolio/cake.png" class="img-responsive" alt="Slice of cake">
+                        <img src="img/portfolio/Bolo.png" class="img-responsive" alt="Slice of cake">
                     </a>
                 </div>
                 <div class="col-sm-4 portfolio-item">
@@ -133,7 +140,7 @@
                                 <i class="fa fa-search-plus fa-3x"></i>
                             </div>
                         </div>
-                        <img src="img/portfolio/circus.png" class="img-responsive" alt="Circus tent">
+                        <img src="img/portfolio/Hamburguer.png" class="img-responsive" alt="Circus tent">
                     </a>
                 </div>
                 <div class="col-sm-4 portfolio-item">
@@ -143,7 +150,7 @@
                                 <i class="fa fa-search-plus fa-3x"></i>
                             </div>
                         </div>
-                        <img src="img/portfolio/game.png" class="img-responsive" alt="Game controller">
+                        <img src="img/portfolio/Pizza.png" class="img-responsive" alt="Game controller">
                     </a>
                 </div>
                 <div class="col-sm-4 portfolio-item">
@@ -153,7 +160,7 @@
                                 <i class="fa fa-search-plus fa-3x"></i>
                             </div>
                         </div>
-                        <img src="img/portfolio/safe.png" class="img-responsive" alt="Safe">
+                        <img src="img/portfolio/Sushi.png" class="img-responsive" alt="Safe">
                     </a>
                 </div>
                 <div class="col-sm-4 portfolio-item">
@@ -163,7 +170,7 @@
                                 <i class="fa fa-search-plus fa-3x"></i>
                             </div>
                         </div>
-                        <img src="img/portfolio/submarine.png" class="img-responsive" alt="Submarine">
+                        <img src="img/portfolio/Taco.png" class="img-responsive" alt="Submarine">
                     </a>
                 </div>
             </div>
@@ -181,40 +188,69 @@
                 <div class="col-lg-8 col-lg-offset-2">
                     <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
                     <!-- The form should work on most web servers, but if the form is not working you may need to configure your web server differently. -->
-                    <form name="sentMessage" id="contactForm" novalidate>
+                    <form name="cadEmpresa" id="empresaForm" novalidate>
                         <div class="row control-group">
                             <div class="form-group col-xs-12 floating-label-form-group controls">
-                                <label for="name">Name</label>
-                                <input type="text" class="form-control" placeholder="Name" id="name" required data-validation-required-message="Please enter your name.">
+								<label for="cnpj">CNPJ</label>
+								<input type="number" class="form-control" placeholder="CNPJ" id="cnpj" required data-validation-required-message="Por favor, insira o CNPJ.">
+							<p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+						<div class="row control-group">
+                            <div class="form-group col-xs-12 floating-label-form-group controls">
+                                <label for="name">Nome da Empresa</label>
+                                <input type="text" class="form-control" placeholder="Nome da empresa" id="name" required data-validation-required-message="Por favor, insira o nome da empresa.">
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+						<div class="row control-group">
+                            <div class="form-group col-xs-4 floating-label-form-group controls">
+                                <label for="bairro">Bairro</label>
+                                <input type="text" class="form-control" placeholder="Bairro" id="bairro" required data-validation-required-message="Por favor, insira o bairro.">
+                                <p class="help-block text-danger"></p>
+                            </div>
+                            <div class="form-group col-xs-4 floating-label-form-group controls">
+                                <label for="rua">Rua</label>
+                                <input type="text" class="form-control" placeholder="Rua" id="rua" required data-validation-required-message="Por favor, insira a rua.">
+                                <p class="help-block text-danger"></p>
+                            </div>
+                            <div class="form-group col-xs-4 floating-label-form-group controls">
+                                <label for="numero">Numero</label>
+                                <input type="number" class="form-control" placeholder="Numero" id="num" required data-validation-required-message="Por favor, insira o numero do local.">
                                 <p class="help-block text-danger"></p>
                             </div>
                         </div>
                         <div class="row control-group">
                             <div class="form-group col-xs-12 floating-label-form-group controls">
-                                <label for="email">Email Address</label>
-                                <input type="email" class="form-control" placeholder="Email Address" id="email" required data-validation-required-message="Please enter your email address.">
+                                <label for="email">Email</label>
+                                <input type="email" class="form-control" placeholder="Email" id="email" required data-validation-required-message="Por favor, insira seu email.">
                                 <p class="help-block text-danger"></p>
                             </div>
                         </div>
                         <div class="row control-group">
-                            <div class="form-group col-xs-12 floating-label-form-group controls">
-                                <label for="phone">Phone Number</label>
-                                <input type="tel" class="form-control" placeholder="Phone Number" id="phone" required data-validation-required-message="Please enter your phone number.">
+                            <div class="form-group col-xs-6 floating-label-form-group controls">
+                                <label for="phone1">Telefone</label>
+                                <input type="tel" class="form-control" placeholder="Telefone 1" id="phone1" required data-validation-required-message="Por favor, insira seu telefone.">
+                                <p class="help-block text-danger"></p>
+                            </div>
+							<div class="form-group col-xs-6 floating-label-form-group controls">
+                                <label for="phone2">Telefone</label>
+                                <input type="tel" class="form-control" placeholder="Telefone 2" id="phone2">
                                 <p class="help-block text-danger"></p>
                             </div>
                         </div>
-                        <div class="row control-group">
+                        <!--<div class="row control-group">
                             <div class="form-group col-xs-12 floating-label-form-group controls">
                                 <label for="message">Message</label>
                                 <textarea rows="5" class="form-control" placeholder="Message" id="message" required data-validation-required-message="Please enter a message."></textarea>
                                 <p class="help-block text-danger"></p>
                             </div>
-                        </div>
+                        </div>-->
                         <br>
                         <div id="success"></div>
                         <div class="row">
                             <div class="form-group col-xs-12">
-                                <button type="submit" class="btn btn-success btn-lg">Send</button>
+                                <button type="submit" class="btn btn-success btn-lg">Enviar</button>
                             </div>
                         </div>
                     </form>
@@ -226,102 +262,310 @@
     </section>
 
     <!-- Cliente Section -->
-    <section class="success" id="cliente">
+    <section id="cliente">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2>Cliente</h2>
-                    <hr class="star-light">
+                    <h2>Clientes</h2>
+					<hr class="star-primary">
+					<h4>Confira os clientes que já tiveram seus pedidos entregues pela Delivery Now! </h4>
+						<div class="row">
+							<div class="col-lg-4 col-lg-offset-2">
+								<p>Lista de Clientes</p>
+							</div>
+						</div>
+						<br><br>
+					<h4>Cadastrar novo cliente</h4>
+					<div class="row">
+                        <div class="form-group col-xs-12">
+							<button class="page-scroll btn btn-success btn-lg">
+								<a href="#cadastrarCli" class="btn-success">Cadastrar</a>
+							</button>
+						</div>
+					</div>	
+                </div>
+            </div>
+
+			<!-- cadastrar cliente subsection-->
+		<section id="cadastrarCli">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2>Cadastrar Cliente</h2>
+                    <hr class="star-primary">
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-4 col-lg-offset-2">
-                    <p>Freelancer is a free bootstrap theme created by Start Bootstrap. The download includes the complete source files including HTML, CSS, and JavaScript as well as optional LESS stylesheets for easy customization.</p>
-                </div>
-                <div class="col-lg-4">
-                    <p>Whether you're a student looking to showcase your work, a professional looking to attract clients, or a graphic artist looking to share your projects, this template is the perfect starting point!</p>
-                </div>
-                <div class="col-lg-8 col-lg-offset-2 text-center">
-                    <a href="#" class="btn btn-lg btn-outline">
-                        <i class="fa fa-download"></i> Download Theme
-                    </a>
+                <div class="col-lg-8 col-lg-offset-2">
+                    <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
+                    <!-- The form should work on most web servers, but if the form is not working you may need to configure your web server differently. -->
+                    <form name="cadEmpresa" id="empresaForm" novalidate>
+                        <div class="row control-group">
+                            <div class="form-group col-xs-12 floating-label-form-group controls">
+								<label for="id">ID do cliente</label>
+								<input type="number" class="form-control" placeholder="ID Cliente" id="id" required data-validation-required-message="Por favor, insira o ID do cliente.">
+							<p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+						<div class="row control-group">
+                            <div class="form-group col-xs-12 floating-label-form-group controls">
+                                <label for="name">Nome do Cliente</label>
+                                <input type="text" class="form-control" placeholder="Nome do cliente" id="name" required data-validation-required-message="Por favor, insira o nome do cliente.">
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+						<div class="row control-group">
+                            <div class="form-group col-xs-4 floating-label-form-group controls">
+                                <label for="bairro">Bairro</label>
+                                <input type="text" class="form-control" placeholder="Bairro" id="bairro" required data-validation-required-message="Por favor, insira o bairro.">
+                                <p class="help-block text-danger"></p>
+                            </div>
+                            <div class="form-group col-xs-4 floating-label-form-group controls">
+                                <label for="rua">Rua</label>
+                                <input type="text" class="form-control" placeholder="Rua" id="rua" required data-validation-required-message="Por favor, insira a rua.">
+                                <p class="help-block text-danger"></p>
+                            </div>
+                            <div class="form-group col-xs-4 floating-label-form-group controls">
+                                <label for="numero">Numero</label>
+                                <input type="number" class="form-control" placeholder="Numero" id="num" required data-validation-required-message="Por favor, insira o numero do local.">
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+                        <div class="row control-group">
+                            <div class="form-group col-xs-12 floating-label-form-group controls">
+                                <label for="email">Email</label>
+                                <input type="email" class="form-control" placeholder="Email" id="email" required data-validation-required-message="Por favor, insira seu email.">
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+                        <div class="row control-group">
+                            <div class="form-group col-xs-6 floating-label-form-group controls">
+                                <label for="phone1">Telefone</label>
+                                <input type="tel" class="form-control" placeholder="Telefone 1" id="phone1" required data-validation-required-message="Por favor, insira seu telefone.">
+                                <p class="help-block text-danger"></p>
+                            </div>
+							<div class="form-group col-xs-6 floating-label-form-group controls">
+                                <label for="phone2">Telefone</label>
+                                <input type="tel" class="form-control" placeholder="Telefone 2" id="phone2">
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+                        <!--<div class="row control-group">
+                            <div class="form-group col-xs-12 floating-label-form-group controls">
+                                <label for="message">Message</label>
+                                <textarea rows="5" class="form-control" placeholder="Message" id="message" required data-validation-required-message="Please enter a message."></textarea>
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>-->
+                        <br>
+                        <div id="success"></div>
+                        <div class="row">
+                            <div class="form-group col-xs-12">
+                                <button type="submit" class="btn btn-success btn-lg">Enviar</button>
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
+		</section>
+        </div>
     </section>
-	
+
 	    <!-- Pedido Section -->
     <section class="success" id="pedido">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2>Pedido</h2>
+                    <h2>Pedidos</h2>
                     <hr class="star-light">
                 </div>
             </div>
             <div class="row">
                 <div class="col-lg-4 col-lg-offset-2">
-                    <p>Freelancer is a free bootstrap theme created by Start Bootstrap. The download includes the complete source files including HTML, CSS, and JavaScript as well as optional LESS stylesheets for easy customization.</p>
-                </div>
-                <div class="col-lg-4">
-                    <p>Whether you're a student looking to showcase your work, a professional looking to attract clients, or a graphic artist looking to share your projects, this template is the perfect starting point!</p>
-                </div>
-                <div class="col-lg-8 col-lg-offset-2 text-center">
-                    <a href="#" class="btn btn-lg btn-outline">
-                        <i class="fa fa-download"></i> Download Theme
-                    </a>
+                    <p>Lista de Pedidos</p>
                 </div>
             </div>
         </div>
     </section>
-	
+
 	    <!-- Entregador Section -->
-    <section class="success" id="entregador">
+    <section id="entregador">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2>Entregador</h2>
+                    <h2>Entregadores</h2>
+					<hr class="star-primary">
+					<h4>Confira quem são os nossos entregadores! </h4>
+						<div class="row">
+							<div class="col-lg-4 col-lg-offset-2">
+								<p>Lista de Entregadores</p>
+							</div>
+						</div>
+						<br><br>
+					<h4>Cadastrar novo entregador</h4>
+					<div class="row">
+                        <div class="form-group col-xs-12">
+							<button class="page-scroll btn btn-success btn-lg">
+								<a href="#cadEntregador" class="btn-success">Cadastrar</a>
+							</button>
+						</div>
+					</div>
+                </div>
+            </div>
+          
+			<!-- cadastrar entregador subsection-->
+		<section id="cadEntregador">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2>Cadastrar Entregador</h2>
+                    <hr class="star-primary">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
+                    <!-- The form should work on most web servers, but if the form is not working you may need to configure your web server differently. -->
+                    <form name="cadEntregador" id="entregadorForm" novalidate>
+                        <div class="row control-group">
+                            <div class="form-group col-xs-12 floating-label-form-group controls">
+								<label for="ide">ID do entregador</label>
+								<input type="number" class="form-control" placeholder="ID Entregador" id="ide" required data-validation-required-message="Por favor, insira o ID do entregador.">
+							<p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+						<div class="row control-group">
+                            <div class="form-group col-xs-12 floating-label-form-group controls">
+                                <label for="name">Nome do Entregador</label>
+                                <input type="text" class="form-control" placeholder="Nome do entregador" id="name" required data-validation-required-message="Por favor, insira o nome do entregador.">
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+                        <div class="row control-group">
+                            <div class="form-group col-xs-6 floating-label-form-group controls">
+                                <label for="phone1">Telefone</label>
+                                <input type="tel" class="form-control" placeholder="Telefone 1" id="phone1" required data-validation-required-message="Por favor, insira seu telefone.">
+                                <p class="help-block text-danger"></p>
+                            </div>
+							<div class="form-group col-xs-6 floating-label-form-group controls">
+                                <label for="phone2">Telefone</label>
+                                <input type="tel" class="form-control" placeholder="Telefone 2" id="phone2">
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+                        <!--<div class="row control-group">
+                            <div class="form-group col-xs-12 floating-label-form-group controls">
+                                <label for="message">Message</label>
+                                <textarea rows="5" class="form-control" placeholder="Message" id="message" required data-validation-required-message="Please enter a message."></textarea>
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>-->
+                        <br>
+                        <div id="success"></div>
+                        <div class="row">
+                            <div class="form-group col-xs-12">
+                                <button type="submit" class="btn btn-success btn-lg">Enviar</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+		</section>
+        </div>
+    </section>
+	
+		<!-- Entregas Section -->
+    <section class = "success" id="entregas">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2>Entregas</h2>
                     <hr class="star-light">
                 </div>
             </div>
             <div class="row">
                 <div class="col-lg-4 col-lg-offset-2">
-                    <p>Freelancer is a free bootstrap theme created by Start Bootstrap. The download includes the complete source files including HTML, CSS, and JavaScript as well as optional LESS stylesheets for easy customization.</p>
-                </div>
-                <div class="col-lg-4">
-                    <p>Whether you're a student looking to showcase your work, a professional looking to attract clients, or a graphic artist looking to share your projects, this template is the perfect starting point!</p>
-                </div>
-                <div class="col-lg-8 col-lg-offset-2 text-center">
-                    <a href="#" class="btn btn-lg btn-outline">
-                        <i class="fa fa-download"></i> Download Theme
-                    </a>
+                    <p>Lista de Entregas</p>
                 </div>
             </div>
         </div>
     </section>
-	
+
 	    <!-- Veículo Section -->
-    <section class="success" id="veiculo">
+    <section id="veiculo">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2>Veículo</h2>
-                    <hr class="star-light">
+                    <h2>Veículos</h2>
+					<h4>Confira os veículos da Delivery Now! </h4>
+					    <div class="row">
+							<div class="col-lg-4 col-lg-offset-2">
+								<p>Lista de Veículos</p>
+							</div>
+						</div>
+						<br><br>
+					<h4>Cadastrar novo veículo</h4>
+					<div class="row">
+                        <div class="form-group col-xs-12">
+							<button class="page-scroll btn btn-success btn-lg">
+								<a href="#cadastrarVei" class="btn-success">Cadastrar</a>
+							</button>
+						</div>
+					</div>
+                    <hr class="star-primary">
+                </div>
+            </div>
+		<section id="cadastrarVei">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2>Cadastrar Veículo</h2>
+                    <hr class="star-primary">
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-4 col-lg-offset-2">
-                    <p>Freelancer is a free bootstrap theme created by Start Bootstrap. The download includes the complete source files including HTML, CSS, and JavaScript as well as optional LESS stylesheets for easy customization.</p>
-                </div>
-                <div class="col-lg-4">
-                    <p>Whether you're a student looking to showcase your work, a professional looking to attract clients, or a graphic artist looking to share your projects, this template is the perfect starting point!</p>
-                </div>
-                <div class="col-lg-8 col-lg-offset-2 text-center">
-                    <a href="#" class="btn btn-lg btn-outline">
-                        <i class="fa fa-download"></i> Download Theme
-                    </a>
+                <div class="col-lg-8 col-lg-offset-2">
+                    <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
+                    <!-- The form should work on most web servers, but if the form is not working you may need to configure your web server differently. -->
+                    <form name="cadVeiculo" id="veiculoForm" novalidate>
+						<div class="row control-group">
+                            <div class="form-group col-xs-12 floating-label-form-group controls">
+                                <label for="placa">Placa</label>
+                                <input type="text" class="form-control" placeholder="Placa do veículo" id="placa" required data-validation-required-message="Por favor, insira a placa do veículo.">
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+						<div class="row control-group">
+                            <div class="form-group col-xs-4 floating-label-form-group controls">
+                                <label for="marca">Marca</label>
+                                <input type="text" class="form-control" placeholder="Marca" id="marca" required data-validation-required-message="Por favor, insira a marca do veículo.">
+                                <p class="help-block text-danger"></p>
+                            </div>
+                            <div class="form-group col-xs-4 floating-label-form-group controls">
+                                <label for="modelo">Modelo</label>
+                                <input type="text" class="form-control" placeholder="Modelo" id="modelo" required data-validation-required-message="Por favor, insira o modelo do veículo.">
+                                <p class="help-block text-danger"></p>
+                            </div>
+                            <div class="form-group col-xs-4 floating-label-form-group controls">
+                                <label for="ano">Ano de fabricação</label>
+                                <input type="number" class="form-control" placeholder="Ano de fabricação" id="ano" required data-validation-required-message="Por favor, insira o ano de fabricação do veículo.">
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+                        <br>
+                        <div id="success"></div>
+                        <div class="row">
+                            <div class="form-group col-xs-12">
+                                <button type="submit" class="btn btn-success btn-lg">Enviar</button>
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </div>
+        </div>
+		</section>
         </div>
     </section>
 
@@ -341,29 +585,29 @@
                     <form name="sentMessage" id="contactForm" novalidate>
                         <div class="row control-group">
                             <div class="form-group col-xs-12 floating-label-form-group controls">
-                                <label for="name">Name</label>
-                                <input type="text" class="form-control" placeholder="Name" id="name" required data-validation-required-message="Please enter your name.">
+                                <label for="name">Nome</label>
+                                <input type="text" class="form-control" placeholder="Nome" id="name" required data-validation-required-message="Por favor, informe seu nome.">
                                 <p class="help-block text-danger"></p>
                             </div>
                         </div>
                         <div class="row control-group">
                             <div class="form-group col-xs-12 floating-label-form-group controls">
-                                <label for="email">Email Address</label>
-                                <input type="email" class="form-control" placeholder="Email Address" id="email" required data-validation-required-message="Please enter your email address.">
+                                <label for="email">Email</label>
+                                <input type="email" class="form-control" placeholder="Email" id="email" required data-validation-required-message="Por favor, informe seu email.">
                                 <p class="help-block text-danger"></p>
                             </div>
                         </div>
                         <div class="row control-group">
                             <div class="form-group col-xs-12 floating-label-form-group controls">
-                                <label for="phone">Phone Number</label>
-                                <input type="tel" class="form-control" placeholder="Phone Number" id="phone" required data-validation-required-message="Please enter your phone number.">
+                                <label for="phone">Telefone</label>
+                                <input type="tel" class="form-control" placeholder="Telefone" id="phone" required data-validation-required-message="Por favor, informe seu telefone.">
                                 <p class="help-block text-danger"></p>
                             </div>
                         </div>
                         <div class="row control-group">
                             <div class="form-group col-xs-12 floating-label-form-group controls">
-                                <label for="message">Message</label>
-                                <textarea rows="5" class="form-control" placeholder="Message" id="message" required data-validation-required-message="Please enter a message."></textarea>
+                                <label for="message">Mensagem</label>
+                                <textarea rows="5" class="form-control" placeholder="Mensagem" id="message" required data-validation-required-message="Por favor, informe a mensagem."></textarea>
                                 <p class="help-block text-danger"></p>
                             </div>
                         </div>
@@ -451,19 +695,19 @@
                         <div class="modal-body">
                             <h2>Project Title</h2>
                             <hr class="star-primary">
-                            <img src="img/portfolio/cabin.png" class="img-responsive img-centered" alt="">
-                            <p>Use this area of the page to describe your project. The icon above is part of a free icon set by <a href="https://sellfy.com/p/8Q9P/jV3VZ/">Flat Icons</a>. On their website, you can download their free set with 16 icons, or you can purchase the entire set with 146 icons for only $12!</p>
+                            <img src="img/portfolio/Churrasco.png" class="img-responsive img-centered" alt="">
+                            <p>Churrascaria Holandês <a href="https://sellfy.com/p/8Q9P/jV3VZ/">Flat Icons</a>. On their website, you can download their free set with 16 icons, or you can purchase the entire set with 146 icons for only $12!</p>
                             <ul class="list-inline item-details">
                                 <li>Client:
-                                    <strong><a href="http://startbootstrap.com">Start Bootstrap</a>
+                                    <strong><a href="#">Churrascaria Holandês</a>
                                     </strong>
                                 </li>
                                 <li>Date:
-                                    <strong><a href="http://startbootstrap.com">April 2014</a>
+                                    <strong>Abril 2017
                                     </strong>
                                 </li>
                                 <li>Service:
-                                    <strong><a href="http://startbootstrap.com">Web Development</a>
+                                    <strong>Serviço de Entrega
                                     </strong>
                                 </li>
                             </ul>
@@ -488,19 +732,19 @@
                         <div class="modal-body">
                             <h2>Project Title</h2>
                             <hr class="star-primary">
-                            <img src="img/portfolio/cake.png" class="img-responsive img-centered" alt="">
-                            <p>Use this area of the page to describe your project. The icon above is part of a free icon set by <a href="https://sellfy.com/p/8Q9P/jV3VZ/">Flat Icons</a>. On their website, you can download their free set with 16 icons, or you can purchase the entire set with 146 icons for only $12!</p>
+                            <img src="img/portfolio/Bolo.png" class="img-responsive img-centered" alt="">
+                            <p>SwitchCake confeitaria<a href="https://sellfy.com/p/8Q9P/jV3VZ/">Flat Icons</a>. On their website, you can download their free set with 16 icons, or you can purchase the entire set with 146 icons for only $12!</p>
                             <ul class="list-inline item-details">
                                 <li>Client:
-                                    <strong><a href="http://startbootstrap.com">Start Bootstrap</a>
+                                    <strong><a href="#">SwitchCake</a>
                                     </strong>
                                 </li>
                                 <li>Date:
-                                    <strong><a href="http://startbootstrap.com">April 2014</a>
+                                    <strong>Maio 2017</a>
                                     </strong>
                                 </li>
                                 <li>Service:
-                                    <strong><a href="http://startbootstrap.com">Web Development</a>
+                                    <strong>Serviço de entrega
                                     </strong>
                                 </li>
                             </ul>
@@ -525,19 +769,19 @@
                         <div class="modal-body">
                             <h2>Project Title</h2>
                             <hr class="star-primary">
-                            <img src="img/portfolio/circus.png" class="img-responsive img-centered" alt="">
-                            <p>Use this area of the page to describe your project. The icon above is part of a free icon set by <a href="https://sellfy.com/p/8Q9P/jV3VZ/">Flat Icons</a>. On their website, you can download their free set with 16 icons, or you can purchase the entire set with 146 icons for only $12!</p>
+                            <img src="img/portfolio/Hamburguer.png" class="img-responsive img-centered" alt="">
+                            <p> Hamburgueria do Thiago<a href="https://sellfy.com/p/8Q9P/jV3VZ/">Flat Icons</a>. On their website, you can download their free set with 16 icons, or you can purchase the entire set with 146 icons for only $12!</p>
                             <ul class="list-inline item-details">
                                 <li>Client:
-                                    <strong><a href="http://startbootstrap.com">Start Bootstrap</a>
+                                    <strong><a href="#">Hamburgueria do Thiago</a>
                                     </strong>
                                 </li>
                                 <li>Date:
-                                    <strong><a href="http://startbootstrap.com">April 2014</a>
+                                    <strong>Maio 2017
                                     </strong>
                                 </li>
                                 <li>Service:
-                                    <strong><a href="http://startbootstrap.com">Web Development</a>
+                                    <strong>Serviço de entrega
                                     </strong>
                                 </li>
                             </ul>
@@ -562,19 +806,19 @@
                         <div class="modal-body">
                             <h2>Project Title</h2>
                             <hr class="star-primary">
-                            <img src="img/portfolio/game.png" class="img-responsive img-centered" alt="">
-                            <p>Use this area of the page to describe your project. The icon above is part of a free icon set by <a href="https://sellfy.com/p/8Q9P/jV3VZ/">Flat Icons</a>. On their website, you can download their free set with 16 icons, or you can purchase the entire set with 146 icons for only $12!</p>
+                            <img src="img/portfolio/Pizza.png" class="img-responsive img-centered" alt="">
+                            <p>Alo pizza <a href="https://sellfy.com/p/8Q9P/jV3VZ/">Flat Icons</a>. On their website, you can download their free set with 16 icons, or you can purchase the entire set with 146 icons for only $12!</p>
                             <ul class="list-inline item-details">
                                 <li>Client:
-                                    <strong><a href="http://startbootstrap.com">Start Bootstrap</a>
+                                    <strong><a href="#">Serviço de entrega</a>
                                     </strong>
                                 </li>
                                 <li>Date:
-                                    <strong><a href="http://startbootstrap.com">April 2014</a>
+                                    <strong>Maio 2017
                                     </strong>
                                 </li>
                                 <li>Service:
-                                    <strong><a href="http://startbootstrap.com">Web Development</a>
+                                    <strong>Serviço de entrega
                                     </strong>
                                 </li>
                             </ul>
@@ -599,19 +843,19 @@
                         <div class="modal-body">
                             <h2>Project Title</h2>
                             <hr class="star-primary">
-                            <img src="img/portfolio/safe.png" class="img-responsive img-centered" alt="">
-                            <p>Use this area of the page to describe your project. The icon above is part of a free icon set by <a href="https://sellfy.com/p/8Q9P/jV3VZ/">Flat Icons</a>. On their website, you can download their free set with 16 icons, or you can purchase the entire set with 146 icons for only $12!</p>
+                            <img src="img/portfolio/Sushi.png" class="img-responsive img-centered" alt="">
+                            <p>Sushi Brasil comida japonesa <a href="https://sellfy.com/p/8Q9P/jV3VZ/">Flat Icons</a>. On their website, you can download their free set with 16 icons, or you can purchase the entire set with 146 icons for only $12!</p>
                             <ul class="list-inline item-details">
                                 <li>Client:
-                                    <strong><a href="http://startbootstrap.com">Start Bootstrap</a>
+                                    <strong><a href="#">Sushi Brasil</a>
                                     </strong>
                                 </li>
                                 <li>Date:
-                                    <strong><a href="http://startbootstrap.com">April 2014</a>
+                                    <strong>Abril 2017
                                     </strong>
                                 </li>
                                 <li>Service:
-                                    <strong><a href="http://startbootstrap.com">Web Development</a>
+                                    <strong>Serviço de entrega
                                     </strong>
                                 </li>
                             </ul>
@@ -636,19 +880,19 @@
                         <div class="modal-body">
                             <h2>Project Title</h2>
                             <hr class="star-primary">
-                            <img src="img/portfolio/submarine.png" class="img-responsive img-centered" alt="">
-                            <p>Use this area of the page to describe your project. The icon above is part of a free icon set by <a href="https://sellfy.com/p/8Q9P/jV3VZ/">Flat Icons</a>. On their website, you can download their free set with 16 icons, or you can purchase the entire set with 146 icons for only $12!</p>
+                            <img src="img/portfolio/Taco.png" class="img-responsive img-centered" alt="">
+                            <p>Restaurante de comida mexicana <a href="https://sellfy.com/p/8Q9P/jV3VZ/">Flat Icons</a>. On their website, you can download their free set with 16 icons, or you can purchase the entire set with 146 icons for only $12!</p>
                             <ul class="list-inline item-details">
                                 <li>Client:
-                                    <strong><a href="http://startbootstrap.com">Start Bootstrap</a>
+                                    <strong><a href="#">Alabamba comida mexicana</a>
                                     </strong>
                                 </li>
                                 <li>Date:
-                                    <strong><a href="http://startbootstrap.com">April 2014</a>
+                                    <strong>Março 2017
                                     </strong>
                                 </li>
                                 <li>Service:
-                                    <strong><a href="http://startbootstrap.com">Web Development</a>
+                                    <strong> Serviço de entrega
                                     </strong>
                                 </li>
                             </ul>
