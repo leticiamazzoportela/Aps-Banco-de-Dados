@@ -8,6 +8,7 @@ CREATE TABLE IF NOT EXISTS Cliente(
   Bairro VARCHAR(45) NULL,
   Rua VARCHAR(45) NULL,
   Numero INT(11) NULL,
+  Email varchar(45) null,
   PRIMARY KEY (idCliente));
 
 CREATE TABLE IF NOT EXISTS Fornecedor(
@@ -16,7 +17,17 @@ CREATE TABLE IF NOT EXISTS Fornecedor(
   Bairro VARCHAR(45) NULL,
   Rua VARCHAR(45) NULL,
   Numero INT(11) NULL,
+  Email varchar(45) null,
   PRIMARY KEY (CNPJ));
+  
+CREATE TABLE IF NOT EXISTS Telefone_Fornecedor(
+  NroTelefone INT NOT NULL,
+  Fornecedor_CNPJ INT NOT NULL,
+  PRIMARY KEY (NroTelefone, Fornecedor_CNPJ),
+    FOREIGN KEY (Fornecedor_CNPJ)
+    REFERENCES Fornecedor(CNPJ)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION);
 
 CREATE TABLE IF NOT EXISTS Entregador(
   idEntregador INT NOT NULL,
@@ -137,65 +148,73 @@ CREATE TABLE IF NOT EXISTS Entrega_Cliente(
 
 -- Inserindo Clientes na tabela Cliente -- 
 
-insert into Cliente (idCliente, Nome, Bairro, Rua, Numero)
-values (01, 'Hermione Granger', 'Potato', 'Magic', 58);
+insert into Cliente (idCliente, Nome, Bairro, Rua, Numero, Email)
+values (01, 'Hermione Granger', 'Potato', 'Magic', 58, 'hg@hg.com');
 
-insert into Cliente (idCliente, Nome, Bairro, Rua, Numero)
-values (02, 'Ronny Weasley', 'Toca', 'Leviosa', 41);
+insert into Cliente (idCliente, Nome, Bairro, Rua, Numero, Email)
+values (02, 'Ronny Weasley', 'Toca', 'Leviosa', 41, 'rw@rw.com');
 
-insert into Cliente (idCliente, Nome, Bairro, Rua, Numero)
-values (03, 'Harry Potter', 'Potato', 'Patrono', 25);
+insert into Cliente (idCliente, Nome, Bairro, Rua, Numero, Email)
+values (03, 'Harry Potter', 'Potato', 'Patrono', 25, 'hp@hp2.com');
 
-insert into Cliente (idCliente, Nome, Bairro, Rua, Numero)
-values (04, 'Minerva Macgnagol', 'Chapeu', 'Seletora', 77);
+insert into Cliente (idCliente, Nome, Bairro, Rua, Numero, Email)
+values (04, 'Minerva Macgnagol', 'Chapeu', 'Seletora', 77, 'mm@mm.com');
 
-insert into Cliente (idCliente, Nome, Bairro, Rua, Numero)
-values (05, 'Draco Malfoy', 'Comensais', 'Ruim', 29);
+insert into Cliente (idCliente, Nome, Bairro, Rua, Numero, Email)
+values (05, 'Draco Malfoy', 'Comensais', 'Ruim', 29, 'dm@dm.com');
 
-insert into Cliente (idCliente, Nome, Bairro, Rua, Numero)
-values (06, 'Severo Snape', 'Comensais', 'Boa', 63);
+insert into Cliente (idCliente, Nome, Bairro, Rua, Numero, Email)
+values (06, 'Severo Snape', 'Comensais', 'Boa', 63, 'ss@ss.com');
 
-insert into Cliente (idCliente, Nome, Bairro, Rua, Numero)
-values (07, 'Alvo Dumbledore', 'Chapeu', 'Fenix', 52);
+insert into Cliente (idCliente, Nome, Bairro, Rua, Numero, Email)
+values (07, 'Alvo Dumbledore', 'Chapeu', 'Fenix', 52, 'ad@ad.com');
 
-insert into Cliente (idCliente, Nome, Bairro, Rua, Numero)
-values (08, 'Cedrico Digori', 'Crepusculo', 'Morre Cedo', 80);
+insert into Cliente (idCliente, Nome, Bairro, Rua, Numero, Email)
+values (08, 'Cedrico Digori', 'Crepusculo', 'Morre Cedo', 80, 'cd@cd.com');
 
-insert into Cliente (idCliente, Nome, Bairro, Rua, Numero)
-values (09, 'Sirius Black', 'Dementador', 'Lobo', 23);
+insert into Cliente (idCliente, Nome, Bairro, Rua, Numero, Email)
+values (09, 'Sirius Black', 'Dementador', 'Lobo', 23, 'sb@sv.com');
 
-insert into Cliente (idCliente, Nome, Bairro, Rua, Numero)
-values (10, 'Bellatrix Lestrange', 'Comensais', 'Ruim', 88);
+insert into Cliente (idCliente, Nome, Bairro, Rua, Numero, Email)
+values (10, 'Bellatrix Lestrange', 'Comensais', 'Ruim', 88, 'bl@bl.com');
 
-insert into Cliente (idCliente, Nome, Bairro, Rua, Numero)
-values (11, 'Hagrid Gigante', 'Canino', 'Bixinhos', 20);
+insert into Cliente (idCliente, Nome, Bairro, Rua, Numero, Email)
+values (11, 'Hagrid Gigante', 'Canino', 'Bixinhos', 20, 'hg@hg.com');
 
-insert into Cliente (idCliente, Nome, Bairro, Rua, Numero)
-values (12, 'Dobby Elfo', 'Canino', 'Bixinhos', 20);
+insert into Cliente (idCliente, Nome, Bairro, Rua, Numero, Email)
+values (12, 'Dobby Elfo', 'Canino', 'Bixinhos', 20, 'de@de.com');
 
 
 -- Inserindo em Fornecedor -- 
 
-insert into Fornecedor(CNPJ, Nome, Bairro, Rua, Numero)
-values (1234, 'Hamburgueria Magica', 'Grifinória', 'Leao', 365);
+insert into Fornecedor(CNPJ, Nome, Bairro, Rua, Numero, Email)
+values (1234, 'Hamburgueria Magica', 'Grifinória', 'Leao', 365, 'lhm@mm.com');
 
-insert into Fornecedor(CNPJ, Nome, Bairro, Rua, Numero)
-values (1357, 'Hamburgueria Quadribol', 'Canino', 'Hipogrifo', 326);
+insert into Fornecedor(CNPJ, Nome, Bairro, Rua, Numero, Email)
+values (1357, 'Hamburgueria Quadribol', 'Canino', 'Hipogrifo', 326, 'ss@mm.com');
 
-insert into Fornecedor(CNPJ, Nome, Bairro, Rua, Numero)
-values (1977, 'Confeitaria de todos os sabores', 'Toca', 'Reparo', 658);
+insert into Fornecedor(CNPJ, Nome, Bairro, Rua, Numero, Email)
+values (1977, 'Confeitaria de todos os sabores', 'Toca', 'Reparo', 658, 'lh@mm.com');
 
-insert into Fornecedor(CNPJ, Nome, Bairro, Rua, Numero)
-values (9965, 'Churrascaria da Bruxa', 'Corvinal', 'Aguia', 952);
+insert into Fornecedor(CNPJ, Nome, Bairro, Rua, Numero, Email)
+values (9965, 'Churrascaria da Bruxa', 'Corvinal', 'Aguia', 952, 'lm@mm.com');
 
-insert into Fornecedor(CNPJ, Nome, Bairro, Rua, Numero)
-values (6452, 'Sushi de Abóbora', 'Grifinória', 'Dourada', 425);
+insert into Fornecedor(CNPJ, Nome, Bairro, Rua, Numero, Email)
+values (6452, 'Sushi de Abóbora', 'Grifinória', 'Dourada', 425, 'pm@mm.com');
 
-insert into Fornecedor(CNPJ, Nome, Bairro, Rua, Numero)
-values (6631, 'Tacos do Elfo', 'Potato', 'Patrono', 412);
+insert into Fornecedor(CNPJ, Nome, Bairro, Rua, Numero, Email)
+values (6631, 'Tacos do Elfo', 'Potato', 'Patrono', 412, 'llj@mm.com');
 
-insert into Fornecedor(CNPJ, Nome, Bairro, Rua, Numero)
-values (1237, 'Pizzaria do Profeta', 'Potato', 'Diario', 202);
+insert into Fornecedor(CNPJ, Nome, Bairro, Rua, Numero, Email)
+values (1237, 'Pizzaria do Profeta', 'Potato', 'Diario', 202, 'lb@mm.com');
+
+
+-- Inserindo em telefone fornecedor--
+
+insert into Telefone_Fornecedor(NroTelefone, Fornecedor_CNPJ)
+values (5522366, 1234),(5522652, 1357), (5582366, 1977), (8522366, 9965), (5522006, 6452), (5525441, 6631), (5527416, 1237);
+
+
 
 -- Inserindo em Entregador -- 
 
