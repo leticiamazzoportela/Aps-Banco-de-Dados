@@ -1,6 +1,6 @@
-DROP DATABASE IF EXISTS bd;
-CREATE DATABASE bd;
-USE bd;
+DROP DATABASE IF EXISTS deliverynow;
+CREATE DATABASE deliverynow;
+USE deliverynow;
 
 CREATE TABLE IF NOT EXISTS Cliente(
   idCliente INT NOT NULL,
@@ -32,27 +32,18 @@ CREATE TABLE IF NOT EXISTS Telefone_Fornecedor(
 CREATE TABLE IF NOT EXISTS Entregador(
   idEntregador INT NOT NULL,
   Nome VARCHAR(45) NULL,
+  HorarioEntrega integer,
   PRIMARY KEY (idEntregador));
-
-CREATE TABLE IF NOT EXISTS Entrega(
-  idEntrega INT NOT NULL,
-  FormaPagamento VARCHAR(45) NULL,
-  ValorTotal REAL NULL,
-  Data DATE NULL,
-  Entregador_idEntregador INT NOT NULL,
-  PRIMARY KEY (idEntrega),
-  FOREIGN KEY (Entregador_idEntregador)
-  REFERENCES Entregador(idEntregador)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION);
 
 CREATE TABLE IF NOT EXISTS Pedido(
   idPedido INT NOT NULL,
-  ValorParcial REAL NULL,
+  ValorTotal REAL NULL,
   Cliente_idCliente INT NOT NULL,
   Fornecedor_CNPJ INT NULL,
-  Entrega_idEntrega INT NOT NULL,
-  PRIMARY KEY (idPedido),
+  DataPedido date,
+  FormaPagamento varchar(45),
+  Entregador_idEntregador int,
+	PRIMARY KEY (idPedido),
     FOREIGN KEY (Cliente_idCliente)
     REFERENCES Cliente(idCliente)
     ON DELETE NO ACTION
@@ -60,9 +51,9 @@ CREATE TABLE IF NOT EXISTS Pedido(
     FOREIGN KEY (Fornecedor_CNPJ)
     REFERENCES Fornecedor(CNPJ)
     ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-    FOREIGN KEY (Entrega_idEntrega)
-    REFERENCES Entrega(idEntrega)
+    ON UPDATE NO ACTION,    
+    FOREIGN KEY (Entregador_idEntregador)
+    REFERENCES Entregador(idEntregador)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION);
 
@@ -98,25 +89,24 @@ CREATE TABLE IF NOT EXISTS Telefone_Cliente(
 
 CREATE TABLE IF NOT EXISTS Produto(
   NomeProduto VARCHAR(45) NOT NULL,
-  DescricaoProduto VARCHAR(100) NULL,
+  idProduto integer,
   Fornecedor_CNPJ INT NOT NULL,
-  PRIMARY KEY (NomeProduto, Fornecedor_CNPJ),
+  PRIMARY KEY (idProduto),
     FOREIGN KEY (Fornecedor_CNPJ)
     REFERENCES Fornecedor(CNPJ)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION);
 
 CREATE TABLE IF NOT EXISTS Pedido_Produto(
-  Produto_NomeProduto VARCHAR(45) NOT NULL,
-  Produto_Fornecedor_CNPJ INT NOT NULL,
+  Produto_idProduto integer NOT NULL,
   Pedido_idPedido INT NOT NULL,
-  PRIMARY KEY (Produto_NomeProduto, Produto_Fornecedor_CNPJ, Pedido_idPedido),
-    FOREIGN KEY (Produto_NomeProduto , Produto_Fornecedor_CNPJ)
-    REFERENCES Produto(NomeProduto, Fornecedor_CNPJ)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
+  PRIMARY KEY (Produto_idProduto, Pedido_idPedido),
     FOREIGN KEY (Pedido_idPedido)
     REFERENCES Pedido(idPedido)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION, 
+	FOREIGN KEY (Produto_idProduto)
+    REFERENCES Produto(idProduto)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION);
 
@@ -128,20 +118,7 @@ CREATE TABLE IF NOT EXISTS Telefone_Entregador(
     REFERENCES Entregador(idEntregador)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION);
-
-CREATE TABLE IF NOT EXISTS Entrega_Cliente(
-  Cliente_idCliente INT NOT NULL,
-  Entregador_idEntregador INT NOT NULL,
-  HorarioEntrega INT(11) NOT NULL,
-  PRIMARY KEY (Cliente_idCliente, Entregador_idEntregador, HorarioEntrega),
-    FOREIGN KEY (Cliente_idCliente)
-    REFERENCES Cliente(idCliente)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-    FOREIGN KEY (Entregador_idEntregador)
-    REFERENCES Entregador(idEntregador)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION);
+    
     
 -- Inserts-- 
 
@@ -218,26 +195,26 @@ values (5522366, 1234),(5522652, 1357), (5582366, 1977), (8522366, 9965), (55220
 
 -- Inserindo em Entregador -- 
 
-insert into Entregador(idEntregador, Nome)
-values (693, 'Edwiges');
+insert into Entregador(idEntregador, Nome, HorarioEntrega)
+values (693, 'Edwiges', 19);
 
-insert into Entregador(idEntregador, Nome)
-values (852, 'Bicusso');
+insert into Entregador(idEntregador, Nome, HorarioEntrega)
+values (852, 'Bicusso', 20);
 
-insert into Entregador(idEntregador, Nome)
-values (982, 'Nimbus');
+insert into Entregador(idEntregador, Nome, HorarioEntrega)
+values (982, 'Nimbus', 21);
 
-insert into Entregador(idEntregador, Nome)
-values (742, 'Lupin');
+insert into Entregador(idEntregador, Nome, HorarioEntrega)
+values (742, 'Lupin', 15);
 
-insert into Entregador(idEntregador, Nome)
-values (602, 'Luna');
+insert into Entregador(idEntregador, Nome, HorarioEntrega)
+values (602, 'Luna', 18);
 
-insert into Entregador(idEntregador, Nome)
-values (153, 'James');
+insert into Entregador(idEntregador, Nome, HorarioEntrega)
+values (153, 'James', 19);
 
-insert into Entregador(idEntregador, Nome)
-values (360, 'krum');
+insert into Entregador(idEntregador, Nome, HorarioEntrega)
+values (360, 'krum', 21);
 
 
 -- Inserindo na tabela Veículo --
@@ -267,47 +244,47 @@ values(30164, 'Expresso', 'Carro', 2017);
 
 -- Inserindo em Produto -- 
 
-insert into Produto (NomeProduto, DescricaoProduto, Fornecedor_CNPJ)
-values ('XBurguer', 'pão, hamburguer, queijo, alface', 1234);
+insert into Produto (NomeProduto, idProduto, Fornecedor_CNPJ)
+values ('XBurguer', 1, 1234);
 
-insert into Produto (NomeProduto, DescricaoProduto, Fornecedor_CNPJ)
-values ('XBacon', 'pão, hamburguer, queijo, alface, bacon', 1234);
+insert into Produto (NomeProduto, idProduto, Fornecedor_CNPJ)
+values ('XBacon', 2, 1234);
 
-insert into Produto (NomeProduto, DescricaoProduto, Fornecedor_CNPJ)
-values ('XBurguer', 'pão, hamburguer, queijo, alface, tomate', 1357);
+insert into Produto (NomeProduto, idProduto, Fornecedor_CNPJ)
+values ('XBurguer', 3, 1357);
 
-insert into Produto (NomeProduto, DescricaoProduto, Fornecedor_CNPJ)
-values ('XSalada', 'pão, hamburguer, queijo, alface, tomate, milho', 1357);
+insert into Produto (NomeProduto, idProduto, Fornecedor_CNPJ)
+values ('XSalada', 4, 1357);
 
-insert into Produto (NomeProduto, DescricaoProduto, Fornecedor_CNPJ)
-values ('Bolo de Aniversario', 'Bolo de chocolate com recheio de morango', 1977);
+insert into Produto (NomeProduto, idProduto, Fornecedor_CNPJ)
+values ('Bolo de Aniversario', 5, 1977);
 
-insert into Produto (NomeProduto, DescricaoProduto, Fornecedor_CNPJ)
-values ('Bolo Magico', 'Bolo de chocolate com cobertura de caramelo', 1977);
+insert into Produto (NomeProduto, idProduto, Fornecedor_CNPJ)
+values ('Bolo Magico', 6, 1977);
 
-insert into Produto (NomeProduto, DescricaoProduto, Fornecedor_CNPJ)
-values ('Picanha ao Alho', 'Picanha temperada com manteiga de alho', 9965);
+insert into Produto (NomeProduto, idProduto, Fornecedor_CNPJ)
+values ('Picanha ao Alho', 7, 9965);
 
-insert into Produto (NomeProduto, DescricaoProduto, Fornecedor_CNPJ)
-values ('Lombo Recheado', 'Lombo suíno recheado com bacon', 9965);
+insert into Produto (NomeProduto, idProduto, Fornecedor_CNPJ)
+values ('Lombo Recheado', 8, 9965);
 
-insert into Produto (NomeProduto, DescricaoProduto, Fornecedor_CNPJ)
-values ('Temaki', 'temaki recheado com arroz e salmão', 6452);
+insert into Produto (NomeProduto, idProduto, Fornecedor_CNPJ)
+values ('Temaki', 9, 6452);
 
-insert into Produto (NomeProduto, DescricaoProduto, Fornecedor_CNPJ)
-values ('Sashimi', 'salmao acompanhado de cebola, repolho e pepino', 6452);
+insert into Produto (NomeProduto, idProduto, Fornecedor_CNPJ)
+values ('Sashimi', 10, 6452);
 
-insert into Produto (NomeProduto, DescricaoProduto, Fornecedor_CNPJ)
-values ('Nachos', 'Nachos acompanhados de guacamole e Chilly', 6631);
+insert into Produto (NomeProduto, idProduto, Fornecedor_CNPJ)
+values ('Nachos', 11, 6631);
 
-insert into Produto (NomeProduto, DescricaoProduto, Fornecedor_CNPJ)
-values ('Tacos', 'Taco recheado com alface tomate e Chilly', 6631);
+insert into Produto (NomeProduto, idProduto, Fornecedor_CNPJ)
+values ('Tacos', 12, 6631);
 
-insert into Produto (NomeProduto, DescricaoProduto, Fornecedor_CNPJ)
-values ('Pizza Mexicana', 'recheio de milho, presunto, mussarela, pimentão, pimentas', 1237);
+insert into Produto (NomeProduto, idProduto, Fornecedor_CNPJ)
+values ('Pizza Mexicana', 13, 1237);
 
-insert into Produto (NomeProduto, DescricaoProduto, Fornecedor_CNPJ)
-values ('Pizza Canadense', 'recheio de Lombo, cebola e catupiry', 1237);
+insert into Produto (NomeProduto, idProduto, Fornecedor_CNPJ)
+values ('Pizza Canadense', 14, 1237);
 
 
 -- Inserindo em Telefone_Cliente --
@@ -393,81 +370,46 @@ values(887523680, 360);
 -- Inserindo em Entrega --
 
 
-insert into Entrega(idEntrega, FormaPagamento, ValorTotal, Data, Entregador_idEntregador)
-values(1, 'cartao', 50.00, '2017-03-12', 360);
-
-insert into Entrega(idEntrega, FormaPagamento, ValorTotal, Data, Entregador_idEntregador)
-values(2, 'cartao', 100.00, '2017-03-12', 742);
-
-insert into Entrega(idEntrega, FormaPagamento, ValorTotal, Data, Entregador_idEntregador)
-values(3, 'cartao', 150.00, '2017-03-12', 360);
-
-insert into Entrega(idEntrega, FormaPagamento, ValorTotal, Data, Entregador_idEntregador)
-values(4, 'dinheiro', 55.00, '2017-03-13', 693);
-
-insert into Entrega(idEntrega, FormaPagamento, ValorTotal, Data, Entregador_idEntregador)
-values(5, 'dinheiro', 250.00, '2017-03-13', 982);
-
-insert into Entrega(idEntrega, FormaPagamento, ValorTotal, Data, Entregador_idEntregador)
-values(6, 'cartao', 35.00, '2017-03-14', 693);
-
-insert into Entrega(idEntrega, FormaPagamento, ValorTotal, Data, Entregador_idEntregador)
-values(7, 'dinheiro', 72.50, '2017-03-14', 852);
-
-insert into Entrega(idEntrega, FormaPagamento, ValorTotal, Data, Entregador_idEntregador)
-values(8, 'cartao', 89.00, '2017-03-15', 852);
-
-insert into Entrega(idEntrega, FormaPagamento, ValorTotal, Data, Entregador_idEntregador)
-values(9, 'dinheiro', 98.00, '2017-03-16', 602);
-
-insert into Entrega(idEntrega, FormaPagamento, ValorTotal, Data, Entregador_idEntregador)
-values(10, 'cartao', 100.00, '2017-03-16', 602);
-
-insert into Entrega(idEntrega, FormaPagamento, ValorTotal, Data, Entregador_idEntregador)
-values(11, 'dinheiro', 290.00, '2017-03-17', 153);
-
-insert into Entrega(idEntrega, FormaPagamento, ValorTotal, Data, Entregador_idEntregador)
-values(12, 'cartao', 44.00, '2017-03-18', 153);
 
 
 -- Inserindo em Pedido --
 
 
-insert into Pedido (idPedido, ValorParcial, Cliente_idCliente, Fornecedor_CNPJ, Entrega_idEntrega)
-values(1, 10.00, 01, 1234, 1), (2, 40.00, 01, 1977, 1);
+insert into Pedido (idPedido, ValorTotal, Cliente_idCliente, Fornecedor_CNPJ, DataPedido, FormaPagamento, Entregador_idEntregador)
+values(1, 10.00, 01, 1234, '2017-03-12', 'cartão', 693), (2, 40.00, 01, 1977, '2017-03-14', 'cartão', 693);
 
-insert into Pedido (idPedido, ValorParcial, Cliente_idCliente, Fornecedor_CNPJ, Entrega_idEntrega)
-values(3, 20.00, 02, 1357, 2), (4, 40.00, 02, 1977, 2), (5, 40.00, 02, 9965, 2);
+insert into Pedido (idPedido, ValorTotal, Cliente_idCliente, Fornecedor_CNPJ, DataPedido, FormaPagamento, Entregador_idEntregador)
+values(3, 20.00, 02, 1357, '2017-03-17', 'dinheiro', 852), (4, 40.00, 02, 1977, '2017-03-11', 'cartão', 852), (5, 40.00, 02, 9965, '2017-03-17', 'dinheiro', 852);
 
-insert into Pedido (idPedido, ValorParcial, Cliente_idCliente, Fornecedor_CNPJ, Entrega_idEntrega)
-values(6, 30.00, 03, 1234, 3), (7, 40.00, 03, 1977, 3), (8, 50.00, 03, 9965, 3);
+insert into Pedido (idPedido, ValorTotal, Cliente_idCliente, Fornecedor_CNPJ, DataPedido, FormaPagamento, Entregador_idEntregador)
+values(6, 30.00, 03, 1234, '2017-03-14', 'cartão', 982), (7, 40.00, 03, 1977, '2017-03-13', 'dinheiro', 982), (8, 50.00, 03, 9965, '2017-03-17', 'dinheiro', 982);
 
-insert into Pedido (idPedido, ValorParcial, Cliente_idCliente, Fornecedor_CNPJ, Entrega_idEntrega)
-values(9, 30.00, 04, 1977, 4), (10, 25.00, 04, 1237, 4);
+insert into Pedido (idPedido, ValorTotal, Cliente_idCliente, Fornecedor_CNPJ, DataPedido, FormaPagamento, Entregador_idEntregador)
+values(9, 30.00, 04, 1977, '2017-03-16', 'dinheiro', 742), (10, 25.00, 04, 1237, '2017-03-10', 'dinheiro', 742);
 
-insert into Pedido (idPedido, ValorParcial, Cliente_idCliente, Fornecedor_CNPJ, Entrega_idEntrega)
-values(11, 30.00, 05, 6631, 5), (12, 40.00, 05, 9965, 5), (13, 50.00, 05, 9965, 5), (14, 130.00, 05, 6452, 5);
+insert into Pedido (idPedido, ValorTotal, Cliente_idCliente, Fornecedor_CNPJ, DataPedido, FormaPagamento, Entregador_idEntregador)
+values(11, 30.00, 05, 6631, '2017-03-14', 'cartão', 602), (12, 40.00, 05, 9965, '2017-03-18', 'dinheiro', 602), (13, 50.00, 05, 9965, '2017-03-15', 'dinheiro', 602), (14, 130.00, 05, 6452, '2017-03-17', 'dinheiro', 602);
 
-insert into Pedido (idPedido, ValorParcial, Cliente_idCliente, Fornecedor_CNPJ, Entrega_idEntrega)
-values(15, 35.00, 06, 1237, 6);
+insert into Pedido (idPedido, ValorTotal, Cliente_idCliente, Fornecedor_CNPJ, DataPedido, FormaPagamento, Entregador_idEntregador)
+values(15, 35.00, 06, 1237, '2017-03-17', 'cartão', 153);
 
-insert into Pedido (idPedido, ValorParcial, Cliente_idCliente, Fornecedor_CNPJ, Entrega_idEntrega)
-values(16, 30.50, 07, 1234, 7), (17, 42.00, 07, 6631, 7);
+insert into Pedido (idPedido, ValorTotal, Cliente_idCliente, Fornecedor_CNPJ, DataPedido, FormaPagamento, Entregador_idEntregador)
+values(16, 30.50, 07, 1234, '2017-03-20', 'dinheiro', 360), (17, 42.00, 07, 6631, '2017-03-17', 'dinheiro', 360);
 
-insert into Pedido (idPedido, ValorParcial, Cliente_idCliente, Fornecedor_CNPJ, Entrega_idEntrega)
-values(18, 49.00, 08, 1357, 8), (19, 40.00, 08, 1237, 8);
+insert into Pedido (idPedido, ValorTotal, Cliente_idCliente, Fornecedor_CNPJ, DataPedido, FormaPagamento, Entregador_idEntregador)
+values(18, 49.00, 08, 1357, '2017-03-21', 'cartão', 852), (19, 40.00, 08, 1237, '2017-03-11', 'cartão', 852);
 
-insert into Pedido (idPedido, ValorParcial, Cliente_idCliente, Fornecedor_CNPJ, Entrega_idEntrega)
-values(20, 50.00, 09, 1977, 9), (21, 45.00, 09, 9965, 9);
+insert into Pedido (idPedido, ValorTotal, Cliente_idCliente, Fornecedor_CNPJ, DataPedido, FormaPagamento, Entregador_idEntregador)
+values(20, 50.00, 09, 1977, '2017-03-23', 'dinheiro', 153), (21, 45.00, 09, 9965, '2017-03-15', 'cartão', 153);
 
-insert into Pedido (idPedido, ValorParcial, Cliente_idCliente, Fornecedor_CNPJ, Entrega_idEntrega)
-values(22, 50.00, 10, 6631, 10), (23, 25.00, 10, 1237, 10), (24, 25.00, 10, 6452, 10);
+insert into Pedido (idPedido, ValorTotal, Cliente_idCliente, Fornecedor_CNPJ, DataPedido, FormaPagamento, Entregador_idEntregador)
+values(22, 50.00, 10, 6631, '2017-03-30', 'dinheiro', 693), (23, 25.00, 10, 1237, '2017-03-07', 'cartão', 693), (24, 25.00, 10, 6452, '2017-03-31', 'dinheiro', 602);
 
-insert into Pedido (idPedido, ValorParcial, Cliente_idCliente, Fornecedor_CNPJ, Entrega_idEntrega)
-values(25, 50.00, 11, 1977, 11), (26, 100.00, 11, 9965, 11), (27, 50.00, 11, 1357, 11), (28, 90.00, 11, 6631, 11);
+insert into Pedido (idPedido, ValorTotal, Cliente_idCliente, Fornecedor_CNPJ, DataPedido, FormaPagamento, Entregador_idEntregador)
+values(25, 50.00, 11, 1977, '2017-03-05', 'dinheiro', 742), (26, 100.00, 11, 9965, '2017-03-20', 'cartão', 742), (27, 50.00, 11, 1357, '2017-03-11', 'dinheiro', 852), (28, 90.00, 11, 6631, '2017-03-17', 'cartão', 153);
 
-insert into Pedido (idPedido, ValorParcial, Cliente_idCliente, Fornecedor_CNPJ, Entrega_idEntrega)
-values(29, 44.00, 12, 1234, 12);
+insert into Pedido (idPedido, ValorTotal, Cliente_idCliente, Fornecedor_CNPJ, DataPedido, FormaPagamento, Entregador_idEntregador)
+values(29, 44.00, 12, 1234, '2017-03-25', 'cartão', 360);
 
 
 -- Inserindo em Usa -- 
@@ -498,32 +440,25 @@ values(360, 12053, '2017-03-12'), (360, 25369, '2017-03-12');
 -- Inserindo em Pedido_Produto -- 
 
 
-insert into Pedido_Produto(Produto_NomeProduto, Produto_Fornecedor_CNPJ, Pedido_idPedido)
-values('XBurguer', 1234, 1),('XBacon', 1234, 6),('XBurguer', 1234, 16), ('XBacon', 1234, 29);
+insert into Pedido_Produto(Produto_idProduto, Pedido_idPedido)
+values(1, 1),(2, 6),(1, 16), (2, 29);
 
-insert into Pedido_Produto(Produto_NomeProduto, Produto_Fornecedor_CNPJ, Pedido_idPedido)
-values('XBurguer', 1357, 3), ('XSalada', 1357, 18),('XSalada', 1357, 27);
+insert into Pedido_Produto(Produto_idProduto, Pedido_idPedido)
+values(1, 3), (4, 18),(4, 27);
 
-insert into Pedido_Produto(Produto_NomeProduto, Produto_Fornecedor_CNPJ, Pedido_idPedido)
-values('Bolo de Aniversario', 1977, 2), ('Bolo Magico', 1977, 4), ('Bolo Magico', 1977, 7), ('Bolo Magico', 1977, 9), ('Bolo de Aniversario', 1977, 20), ('Bolo de Aniversario', 1977, 25);
+insert into Pedido_Produto(Produto_idProduto, Pedido_idPedido)
+values(5, 2), (6, 4), (6, 7), (6, 9), (5, 20), (5, 25);
 
-insert into Pedido_Produto(Produto_NomeProduto, Produto_Fornecedor_CNPJ, Pedido_idPedido)
-values('Picanha ao Alho', 9965, 5), ('Lombo Recheado', 9965, 8), ('Picanha ao Alho', 9965, 12), ('Lombo Recheado', 9965, 13), ('Lombo Recheado', 9965, 21), ('Lombo Recheado', 9965, 26);
+insert into Pedido_Produto(Produto_idProduto, Pedido_idPedido)
+values(7, 5), (8, 8), (7, 12), (8, 13), (8, 21), (8, 26);
 
-insert into Pedido_Produto(Produto_NomeProduto, Produto_Fornecedor_CNPJ, Pedido_idPedido)
-values('Temaki', 6452, 14), ('Sashimi', 6452, 24);
+insert into Pedido_Produto(Produto_idProduto, Pedido_idPedido)
+values(9, 14), (10, 24);
 
-insert into Pedido_Produto(Produto_NomeProduto, Produto_Fornecedor_CNPJ, Pedido_idPedido)
-values('Nachos', 6631, 11), ('Tacos', 6631, 17), ('Tacos', 6631, 22), ('Tacos', 6631, 28);
+insert into Pedido_Produto(Produto_idProduto, Pedido_idPedido)
+values(11, 11), (12, 17), (11, 22), (11, 28);
 
-insert into Pedido_Produto(Produto_NomeProduto, Produto_Fornecedor_CNPJ, Pedido_idPedido)
-values('Pizza Mexicana', 1237, 10), ('Pizza Mexicana', 1237, 15), ('Pizza Mexicana', 1237, 19), ('Pizza Mexicana', 1237, 23);
-
-
--- Inserindo em  Entrega_Cliente --
+insert into Pedido_Produto(Produto_idProduto, Pedido_idPedido)
+values(13, 10), (13, 15), (13, 19), (14, 23);
 
 
-insert into Entrega_Cliente (Cliente_idCliente, Entregador_idEntregador, HorarioEntrega) 
-values(01, 360, 19), (02, 742, 16), (03, 360, 15), (04, 693, 11), (05, 982, 15), (06, 693, 20), (07, 852, 21), (08, 852, 16), (09, 602, 21), (10, 602, 15), (11, 153, 21), (12, 153, 16);
-
-    
