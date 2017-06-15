@@ -299,11 +299,17 @@
                         <div id="success"></div>
                         <div class="row">
                             <div class="form-group col-xs-12">
+								<label for="cnpj">CNPJ cadastrado</label>
 								<input type="text" name="cnpj" class="form-control">
+								<label for="nome">Novo nome</label>
 								<input type="text" name="nome" class="form-control">
+								<label for="bairro">Novo Bairro</label>
 								<input type="text" name="bairro" class="form-control">
+								<label for="rua">Nova rua</label>
 								<input type="text" name="rua" class="form-control">
+								<label for="num">Novo numero</label>
 								<input type="text" name="num" class="form-control">
+								<label for="email">Novo email</label>
 								<input type="text" name="email" class="form-control">
                                 <button type="submit" class="btn btn-success btn-lg">Alterar</button>
                             </div>
@@ -329,12 +335,8 @@
                         <div id="success"></div>
                         <div class="row">
                             <div class="form-group col-xs-12">
+								<label for="cnpj">CNPJ cadastrado</label>
                                 <input type="text" name="cnpj" class="form-control">
-								<input type="text" name="nome" class="form-control">
-								<input type="text" name="bairro" class="form-control">
-								<input type="text" name="rua" class="form-control">
-								<input type="text" name="num" class="form-control">
-								<input type="text" name="email" class="form-control">
                                 <button type="submit" class="btn btn-success btn-lg">Remover</button>
                             </div>
                         </div>
@@ -388,38 +390,38 @@
                         <div class="row control-group">
                             <div class="form-group col-xs-12 floating-label-form-group controls">
 								<label for="id">ID do cliente</label>
-								<input type="number" class="form-control" placeholder="ID Cliente" id="id" required data-validation-required-message="Por favor, insira o ID do cliente.">
+								<input type="number" name="idCliente" class="form-control" placeholder="ID Cliente" id="idCliente" required data-validation-required-message="Por favor, insira o ID do cliente.">
 							<p class="help-block text-danger"></p>
                             </div>
                         </div>
 						<div class="row control-group">
                             <div class="form-group col-xs-12 floating-label-form-group controls">
-                                <label for="name">Nome do Cliente</label>
-                                <input type="text" class="form-control" placeholder="Nome do cliente" id="name" required data-validation-required-message="Por favor, insira o nome do cliente.">
+                                <label for="nome">Nome do Cliente</label>
+                                <input type="text" name="nome" class="form-control" placeholder="Nome do cliente" id="nome" required data-validation-required-message="Por favor, insira o nome do cliente.">
                                 <p class="help-block text-danger"></p>
                             </div>
                         </div>
 						<div class="row control-group">
                             <div class="form-group col-xs-4 floating-label-form-group controls">
                                 <label for="bairro">Bairro</label>
-                                <input type="text" class="form-control" placeholder="Bairro" id="bairro" required data-validation-required-message="Por favor, insira o bairro.">
+                                <input type="text" name="bairro" class="form-control" placeholder="Bairro" id="bairro" required data-validation-required-message="Por favor, insira o bairro.">
                                 <p class="help-block text-danger"></p>
                             </div>
                             <div class="form-group col-xs-4 floating-label-form-group controls">
                                 <label for="rua">Rua</label>
-                                <input type="text" class="form-control" placeholder="Rua" id="rua" required data-validation-required-message="Por favor, insira a rua.">
+                                <input type="text" name="rua" class="form-control" placeholder="Rua" id="rua" required data-validation-required-message="Por favor, insira a rua.">
                                 <p class="help-block text-danger"></p>
                             </div>
                             <div class="form-group col-xs-4 floating-label-form-group controls">
                                 <label for="numero">Numero</label>
-                                <input type="number" class="form-control" placeholder="Numero" id="num" required data-validation-required-message="Por favor, insira o numero do local.">
+                                <input type="number" name="numero" class="form-control" placeholder="Numero" id="num" required data-validation-required-message="Por favor, insira o numero do local.">
                                 <p class="help-block text-danger"></p>
                             </div>
                         </div>
                         <div class="row control-group">
                             <div class="form-group col-xs-12 floating-label-form-group controls">
                                 <label for="email">Email</label>
-                                <input type="email" class="form-control" placeholder="Email" id="email" required data-validation-required-message="Por favor, insira seu email.">
+                                <input type="email" name="email" class="form-control" placeholder="Email" id="email" required data-validation-required-message="Por favor, insira seu email.">
                                 <p class="help-block text-danger"></p>
                             </div>
                         </div>
@@ -489,11 +491,17 @@
                         <div id="success"></div>
                         <div class="row">
                             <div class="form-group col-xs-12">
-								<input type="text" name="cnpj" class="form-control">
+								<label for="idCliente">IdCliente cadastrado</label>
+								<input type="text" name="idCliente" class="form-control">
+								<label for="nome">Novo nome</label>
 								<input type="text" name="nome" class="form-control">
+								<label for="bairro">Novo bairro</label>
 								<input type="text" name="bairro" class="form-control">
+								<label for="rua">Nova rua</label>
 								<input type="text" name="rua" class="form-control">
-								<input type="text" name="num" class="form-control">
+								<label for="numero">Novo numero</label>
+								<input type="text" name="numero" class="form-control">
+								<label for="email">Novo email</label>
 								<input type="text" name="email" class="form-control">
                                 <button type="submit" class="btn btn-success btn-lg">Alterar</button>
                             </div>
@@ -519,6 +527,8 @@
                         <div id="success"></div>
                         <div class="row">
                             <div class="form-group col-xs-12">
+								<label for="idCliente">IdCliente cadastrado</label>
+								<input type="text" name="idCliente" class="form-control">
                                 <button type="submit" class="btn btn-success btn-lg">Remover</button>
                             </div>
                         </div>
@@ -687,28 +697,28 @@
             </div>
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2">
-                    <form name="cadVeiculo" id="veiculoForm" action="dadosVeiculo.php" novalidate>
+                    <form name="cadVeiculo" id="veiculoForm" action="dadosVeiculo.php" method="post" novalidate>
 						<div class="row control-group">
                             <div class="form-group col-xs-12 floating-label-form-group controls">
                                 <label for="placa">Placa</label>
-                                <input type="text" class="form-control" placeholder="Placa do veículo" id="placa" required data-validation-required-message="Por favor, insira a placa do veículo.">
+                                <input type="text" name="placa" class="form-control" placeholder="Placa do veículo" id="placa" required data-validation-required-message="Por favor, insira a placa do veículo.">
                                 <p class="help-block text-danger"></p>
                             </div>
                         </div>
 						<div class="row control-group">
                             <div class="form-group col-xs-4 floating-label-form-group controls">
                                 <label for="marca">Marca</label>
-                                <input type="text" class="form-control" placeholder="Marca" id="marca" required data-validation-required-message="Por favor, insira a marca do veículo.">
+                                <input type="text" name="marca" class="form-control" placeholder="Marca" id="marca" required data-validation-required-message="Por favor, insira a marca do veículo.">
                                 <p class="help-block text-danger"></p>
                             </div>
                             <div class="form-group col-xs-4 floating-label-form-group controls">
                                 <label for="modelo">Modelo</label>
-                                <input type="text" class="form-control" placeholder="Modelo" id="modelo" required data-validation-required-message="Por favor, insira o modelo do veículo.">
+                                <input type="text" name="modelo" class="form-control" placeholder="Modelo" id="modelo" required data-validation-required-message="Por favor, insira o modelo do veículo.">
                                 <p class="help-block text-danger"></p>
                             </div>
                             <div class="form-group col-xs-4 floating-label-form-group controls">
                                 <label for="ano">Ano de fabricação</label>
-                                <input type="number" class="form-control" placeholder="Ano de fabricação" id="ano" required data-validation-required-message="Por favor, insira o ano de fabricação do veículo.">
+                                <input type="number" name="ano" class="form-control" placeholder="Ano de fabricação" id="ano" required data-validation-required-message="Por favor, insira o ano de fabricação do veículo.">
                                 <p class="help-block text-danger"></p>
                             </div>
                         </div>
@@ -767,12 +777,14 @@
                         <div id="success"></div>
                         <div class="row">
                             <div class="form-group col-xs-12">
-								<input type="text" name="cnpj" class="form-control">
-								<input type="text" name="nome" class="form-control">
-								<input type="text" name="bairro" class="form-control">
-								<input type="text" name="rua" class="form-control">
-								<input type="text" name="num" class="form-control">
-								<input type="text" name="email" class="form-control">
+								<label for="placa">Placa cadastrada</label>
+								<input type="text" name="placa" class="form-control">
+								<label for="marca">Nova marca</label>
+								<input type="text" name="marca" class="form-control">
+								<label for="modelo">Novo modelo</label>
+								<input type="text" name="modelo" class="form-control">
+								<label for="ano">Novo ano</label>
+								<input type="text" name="ano" class="form-control">
                                 <button type="submit" class="btn btn-success btn-lg">Alterar</button>
                             </div>
                         </div>
@@ -797,6 +809,8 @@
                         <div id="success"></div>
                         <div class="row">
                             <div class="form-group col-xs-12">
+								<label for="placa">Placa cadastrada</label>
+								<input type="text" name="placa" class="form-control">
                                 <button type="submit" class="btn btn-success btn-lg">Remover</button>
                             </div>
                         </div>

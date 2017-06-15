@@ -19,6 +19,6 @@
 
 	$pdo->query("UPDATE fornecedor SET Email = '$Email' WHERE CNPJ = $CNPJ");
 	
-	print "Editado com sucesso";
+	echo ("<script>alert('Dados alterados com sucesso!');window.location.assign('index.html');</script>");
 
 ?>
