@@ -53,7 +53,7 @@
 <?php
 	include ('../conexaoBanco.php');
 
-	$executa= $pdo->query("SELECT * FROM cliente");
+	$executa= $pdo->query("SELECT * FROM cliente c, telefone_cliente t WHERE c.idCliente = t.Cliente_idCliente");
 	
 	if($executa){
 		foreach($executa as $resultado){
@@ -68,6 +68,7 @@
 									print "Rua: ".$resultado['Rua'].";"."\t";
 									print "Numero: ".$resultado['Numero'].";"."<br>";
 									print "Email: ".$resultado['Email']."<br><br>";
+                                    print "Telefone: ".$resultado['NroTelefone'].";"."\t";
 			echo			"</div>";
 			echo		"</div>";
 			echo	"</div>";

@@ -2,6 +2,7 @@
 	include ('../conexaoBanco.php');
 	
 	$executa1 = $pdo->query("INSERT INTO cliente(idCliente, Nome, Bairro, Rua, Numero, Email) VALUES ('$_POST[idCliente]', '$_POST[nome]', '$_POST[bairro]', '$_POST[rua]', '$_POST[numero]', '$_POST[email]')");
+	
 	$executa2 = $pdo->query("INSERT INTO telefone_cliente(Cliente_idCliente, NroTelefone) VALUES ('$_POST[idCliente]', '$_POST[phone1]')");
 	
 	$aux = $_POST['phone2'];
