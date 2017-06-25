@@ -11,10 +11,10 @@
 
 
     <!-- Bootstrap Core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Theme CSS -->
-    <link href="css/freelancer.min.css" rel="stylesheet">
+    <link href="../css/freelancer.min.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
     <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -33,14 +33,14 @@
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand" href="index.html">Delivery Now</a>
+                <a class="navbar-brand" href="../index.html">Delivery Now</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li class="hidden">
-                        <a href="index.html"></a>
+                        <a href="../index.html"></a>
                     </li>
                 </ul>
             </div>
@@ -51,9 +51,9 @@
 </body>
 </html>
 <?php
-	include ('conexaoBanco.php');
+	include ('../conexaoBanco.php');
 
-	$executa= $pdo->query("SELECT * FROM veiculo");
+	$executa= $pdo->query("SELECT * FROM fornecedor f, telefone_fornecedor t WHERE f.CNPJ = t.Fornecedor_CNPJ");
 	
 	if($executa){
 		foreach($executa as $resultado){
@@ -61,11 +61,14 @@
 			echo "<div class=container>";
 			echo		"<div class=row>";
 			echo			"<div class=col-lg-12 text-center>";
-			echo				"<h4>Veículo</h4>";
-									print "placa: ".$resultado['Placa'].";"."<br>";
-									print "marca: ".$resultado['Marca'].";"."<br>";
-									print "modelo: ".$resultado['Modelo'].";"."\t";
-									print "ano: ".$resultado['AnoFabricacao'].";"."\t";
+			echo				"<h4>Fornecedor</h4>";
+									print "CNPJ: ".$resultado['CNPJ'].";"."<br>";
+									print "Nome: ".$resultado['Nome'].";"."<br>";
+									print "Bairro: ".$resultado['Bairro'].";"."\t";
+									print "Rua: ".$resultado['Rua'].";"."\t";
+									print "Numero: ".$resultado['Numero'].";"."<br>";
+									print "Email: ".$resultado['Email']."<br><br>";
+                                    print "Telefone: ".$resultado['NroTelefone'].";"."\t";
 			echo			"</div>";
 			echo		"</div>";
 			echo	"</div>";
@@ -74,7 +77,7 @@
 		}
 	}
 	else if(count($executa) == 0){
-		echo "<script> alert('Não existem itens cadastrados'); window.location.assign('index.html'); </script>";
+		echo "<script> alert('NÃ£o existem itens cadastrados'); window.location.assign('../index.html'); </script>";
 		print_r($pdo->errorInfo());
 	}
 

@@ -58,17 +58,18 @@
                         <a href="#cliente">Clientes</a>
                     </li>
                     <li class="page-scroll">
-                        <a href="#pedido">Pedidos</a>
-                    </li>
-					<li class="page-scroll">
                         <a href="#entregador">Entregadores</a>
                     </li>
 					<li class="page-scroll">
-                        <a href="#entregas">Entregas</a>
+                        <a href="#produto">Produtos</a>
                     </li>
 					<li class="page-scroll">
                         <a href="#veiculo"><!--About-->Veículos</a>
                     </li>
+                    <li class="page-scroll">
+                        <a href="#complexas">Consultas complexas</a>
+                    </li>
+    
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -118,68 +119,6 @@
 					</div>
                 </div>
             </div>
-            <!--<div class="row">
-                <div class="col-sm-4 portfolio-item">
-                    <a href="#portfolioModal1" class="portfolio-link" data-toggle="modal">
-                        <div class="caption">
-                            <div class="caption-content">
-                                <i class="fa fa-search-plus fa-3x"></i>
-                            </div>
-                        </div>
-                        <img src="img/portfolio/Churrasco.png" class="img-responsive" alt="Cabin">
-                    </a>
-                </div>
-                <div class="col-sm-4 portfolio-item">
-                    <a href="#portfolioModal2" class="portfolio-link" data-toggle="modal">
-                        <div class="caption">
-                            <div class="caption-content">
-                                <i class="fa fa-search-plus fa-3x"></i>
-                            </div>
-                        </div>
-                        <img src="img/portfolio/Bolo.png" class="img-responsive" alt="Slice of cake">
-                    </a>
-                </div>
-                <div class="col-sm-4 portfolio-item">
-                    <a href="#portfolioModal3" class="portfolio-link" data-toggle="modal">
-                        <div class="caption">
-                            <div class="caption-content">
-                                <i class="fa fa-search-plus fa-3x"></i>
-                            </div>
-                        </div>
-                        <img src="img/portfolio/Hamburguer.png" class="img-responsive" alt="Circus tent">
-                    </a>
-                </div>
-                <div class="col-sm-4 portfolio-item">
-                    <a href="#portfolioModal4" class="portfolio-link" data-toggle="modal">
-                        <div class="caption">
-                            <div class="caption-content">
-                                <i class="fa fa-search-plus fa-3x"></i>
-                            </div>
-                        </div>
-                        <img src="img/portfolio/Pizza.png" class="img-responsive" alt="Game controller">
-                    </a>
-                </div>
-                <div class="col-sm-4 portfolio-item">
-                    <a href="#portfolioModal5" class="portfolio-link" data-toggle="modal">
-                        <div class="caption">
-                            <div class="caption-content">
-                                <i class="fa fa-search-plus fa-3x"></i>
-                            </div>
-                        </div>
-                        <img src="img/portfolio/Sushi.png" class="img-responsive" alt="Safe">
-                    </a>
-                </div>
-                <div class="col-sm-4 portfolio-item">
-                    <a href="#portfolioModal6" class="portfolio-link" data-toggle="modal">
-                        <div class="caption">
-                            <div class="caption-content">
-                                <i class="fa fa-search-plus fa-3x"></i>
-                            </div>
-                        </div>
-                        <img src="img/portfolio/Taco.png" class="img-responsive" alt="Submarine">
-                    </a>
-                </div>
-            </div>-->
         </div>
 		<!-- cadastrar nova empresa subsection-->
 		<section id="cadastrar">
@@ -192,7 +131,7 @@
             </div>
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2">
-                    <form name="empresa" id="empresaForm" action="dadosEmpresa.php" method="post" novalidate>
+                    <form name="empresa" id="empresaForm" action="fornecedor/dadosEmpresa.php" method="post" novalidate>
                         <div class="row control-group">
                             <div class="form-group col-xs-12 floating-label-form-group controls">
 								<label for="cnpj">CNPJ</label>
@@ -231,20 +170,19 @@
                                 <p class="help-block text-danger"></p>
                             </div>
                         </div>
-						<!--
                        <div class="row control-group">
                             <div class="form-group col-xs-12 floating-label-form-group controls">
-                                <label for="phone">Telefone</label>
-                                <input type="tel" name="phone" class="form-control" placeholder="Telefone" id="phone" required data-validation-required-message="Por favor, insira seu telefone.">
+                                <label for="phone1">Telefone 1</label>
+                                <input type="tel" name="phone1" class="form-control" placeholder="Telefone 1" id="phone" required data-validation-required-message="Por favor, insira seu telefone.">
                                 <p class="help-block text-danger"></p>
                             </div>
 							
 							<div class="form-group col-xs-6 floating-label-form-group controls">
-                                <label for="phone2">Telefone</label>
+                                <label for="phone2">Telefone 2</label>
                                 <input type="tel" name="phone2" class="form-control" placeholder="Telefone 2" id="phone2">
                                 <p class="help-block text-danger"></p>
                             </div>
-                        </div>-->
+                        </div>
                         <br>
                         <div id="success"></div>
                         <div class="row">
@@ -271,7 +209,7 @@
             </div>
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2">
-                    <form name="consultaEmpresa" id="conEmpresaForm" action="consultaDadosEmpresa.php" method="post">
+                    <form name="consultaEmpresa" id="conEmpresaForm" action="fornecedor/consultaDadosEmpresa.php" method="post">
                         <div id="success"></div>
                         <div class="row">
                             <div class="form-group col-xs-12">
@@ -295,7 +233,7 @@
             </div>
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2">
-                    <form name="altEmpresa" id="altEmpresaForm" action="salvarDadosEmpresa.php" method="post">
+                    <form name="altEmpresa" id="altEmpresaForm" action="fornecedor/salvarDadosEmpresa.php" method="post">
                         <div id="success"></div>
                         <div class="row">
                             <div class="form-group col-xs-12">
@@ -311,6 +249,10 @@
 								<input type="text" name="num" class="form-control">
 								<label for="email">Novo email</label>
 								<input type="text" name="email" class="form-control">
+                                <label for="phone1">Novo telefone 1</label>
+                                <input type="tel" name="phone1" class="form-control">
+                                <label for="phone2">Novo telefone 2</label>
+                                <input type="tel" name="phone2" class="form-control">
                                 <button type="submit" class="btn btn-success btn-lg">Alterar</button>
                             </div>
                         </div>
@@ -331,7 +273,7 @@
             </div>
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2">
-                    <form name="removeEmpresa" id="removeEmpresaForm" action="removeDadosEmpresa.php" method="post">
+                    <form name="removeEmpresa" id="removeEmpresaForm" action="fornecedor/removeDadosEmpresa.php" method="post">
                         <div id="success"></div>
                         <div class="row">
                             <div class="form-group col-xs-12">
@@ -386,7 +328,7 @@
             </div>
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2">
-                    <form name="cadCliente" id="clienteForm" action="dadosCliente.php" method="post">
+                    <form name="cadCliente" id="clienteForm" action="cliente/dadosCliente.php" method="post">
                         <div class="row control-group">
                             <div class="form-group col-xs-12 floating-label-form-group controls">
 								<label for="id">ID do cliente</label>
@@ -425,8 +367,8 @@
                                 <p class="help-block text-danger"></p>
                             </div>
                         </div>
-                        <!--<div class="row control-group">
-                            <!--<div class="form-group col-xs-6 floating-label-form-group controls">
+                        <div class="row control-group">
+                            <div class="form-group col-xs-6 floating-label-form-group controls">
                                 <label for="phone1">Telefone</label>
                                 <input type="tel" class="form-control" placeholder="Telefone 1" id="phone1" required data-validation-required-message="Por favor, insira seu telefone.">
                                 <p class="help-block text-danger"></p>
@@ -435,7 +377,7 @@
                                 <label for="phone2">Telefone</label>
                                 <input type="tel" class="form-control" placeholder="Telefone 2" id="phone2">
                                 <p class="help-block text-danger"></p>
-                            </div>-->
+                            </div>
                         </div>
                         <br>
                         <div id="success"></div>
@@ -463,7 +405,7 @@
             </div>
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2">
-                    <form name="consultaCli" id="conClienteForm" action="consultaDadosCliente.php" method="post">
+                    <form name="consultaCli" id="conClienteForm" action="cliente/consultaDadosCliente.php" method="post">
                         <div id="success"></div>
                         <div class="row">
                             <div class="form-group col-xs-12">
@@ -487,7 +429,7 @@
             </div>
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2">
-                    <form name="altCliente" id="altClienteForm" action="salvarDadosCliente.php" method="post">
+                    <form name="altCliente" id="altClienteForm" action="cliente/salvarDadosCliente.php" method="post">
                         <div id="success"></div>
                         <div class="row">
                             <div class="form-group col-xs-12">
@@ -503,6 +445,10 @@
 								<input type="text" name="numero" class="form-control">
 								<label for="email">Novo email</label>
 								<input type="text" name="email" class="form-control">
+                                <label for="phone1">Novo telefone 1</label>
+                                <input type="tel" name="phone1" class="form-control">
+                                <label for="phone2">Novo telefone 2</label>
+                                <input type="tel" name="phone2" class="form-control">
                                 <button type="submit" class="btn btn-success btn-lg">Alterar</button>
                             </div>
                         </div>
@@ -523,7 +469,7 @@
             </div>
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2">
-                    <form name="removeCliente" id="removeClienteForm" action="removeDadosCliente.php" method="post">
+                    <form name="removeCliente" id="removeClienteForm" action="cliente/removeDadosCliente.php" method="post">
                         <div id="success"></div>
                         <div class="row">
                             <div class="form-group col-xs-12">
@@ -539,18 +485,110 @@
     </section>
     </section>
 
-	    <!-- Pedido Section -->
-    <section class="success" id="pedido">
+	    <!-- Consultas complexas Section -->
+    <section id="complexas">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <h2>Pedidos</h2>
-                    <hr class="star-light">
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-4 col-lg-offset-2">
-                    <p>Lista de Pedidos</p>
+                    <hr class="star-primary">
+                    <h4> Escolha a consulta que deseja realizar </h4>
+                    </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-xs-12">
+                            <p> 1) Consultar o ID dos entregadores que usaram o veículo x, mas não o y.
+                                <br>
+                                <form action="consultas/consulta1.php">
+                                    <button class="page-scroll btn btn-success btn-lg">
+                                        <a href="" class="btn-success">Consultar</a>
+                                    </button>
+                                </form>
+                            </p>
+                            <br>
+                            <p> 2) Consultar o nome dos clientes que nunca pagaram usando cartão.
+                                <br>
+                                <form action="consultas/consulta2.php">
+                                    <button class="page-scroll btn btn-success btn-lg">
+                                        <a href="" class="btn-success">Consultar</a>
+                                    </button>
+                                </form>
+                            </p>
+                            <br>
+                            <p> 3) Consultar o bairro que possui mais clientes cadastrados.
+                                <br>
+                                <form action="consultas/consulta3.php">
+                                    <button class="page-scroll btn btn-success btn-lg">
+                                        <a href="" class="btn-success">Consultar</a>
+                                    </button>
+                                </form>
+                            </p>
+                            <br>
+                            <p> 4) Consultar a placa dos veículos que não foram usados no dia "17/03/2017".
+                                <br>
+                                <form action="consultas/consulta4.php">
+                                    <button class="page-scroll btn btn-success btn-lg">
+                                        <a href="" class="btn-success">Consultar</a>
+                                    </button>
+                                </form>
+                            </p>
+                            <br>
+                            <p> 5) Consultar os IDs dos clientes que compraram "X-salada" e "Bolo de  Aniversário".
+                                <br>
+                                <form action="consultas/consulta5.php">
+                                    <button class="page-scroll btn btn-success btn-lg">
+                                        <a href="" class="btn-success">Consultar</a>
+                                    </button>
+                                </form>
+                            </p>
+                            <br>
+                            <p> 6) Consultar os clientes que nunca compraram "Pizza mexicana".
+                                <br>
+                                <form action="consultas/consulta6.php">
+                                    <button class="page-scroll btn btn-success btn-lg">
+                                        <a href="" class="btn-success">Consultar</a>
+                                    </button>
+                                </form>
+                            </p>
+                            <br>
+                            <p> 7) Consultar o produto mais pedido.
+                                <br>
+                                <form action="consultas/consulta7.php">
+                                    <button class="page-scroll btn btn-success btn-lg">
+                                        <a href="" class="btn-success">Consultar</a>
+                                    </button>
+                                </form>
+                            </p>
+                            <br>
+                            <p> 8) Consultar o pedido de maior valor feito no dia "13/03/2017".
+                                <br>
+                                <form action="consultas/consulta8.php">
+                                    <button class="page-scroll btn btn-success btn-lg">
+                                        <a href="" class="btn-success">Consultar</a>
+                                    </button>
+                                </form>
+                            </p>
+                            <br>
+                            <p> 9) Consultar o valor médio dos pedidos feitos no dia "20/03/2017".
+                                <br>
+                                <form action="consultas/consulta9.php">
+                                    <button class="page-scroll btn btn-success btn-lg">
+                                        <a href="" class="btn-success">Consultar</a>
+                                    </button>
+                                </form>
+                            </p>
+                            <br>
+                            <p> 10) Consultar os IDs dos clientes que já compraram de todos os fornecedores.
+                                <br>
+                                <form action="consultas/consulta10.php">
+                                    <button class="page-scroll btn btn-success btn-lg">
+                                        <a href="" class="btn-success">Consultar</a>
+                                    </button>
+                                </form>
+                            </p>
+                            <br>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -563,26 +601,29 @@
                 <div class="col-lg-12 text-center">
                     <h2>Entregadores</h2>
 					<hr class="star-primary">
-					<h4>Confira quem são os nossos entregadores! </h4>
-						<div class="row">
-							<div class="col-lg-4 col-lg-offset-2">
-								<p>Lista de Entregadores</p>
-							</div>
-						</div>
-						<br><br>
-					<h4>Cadastrar novo entregador</h4>
-					<div class="row">
+					<h4> Escolha a operação que deseja realizar </h4>
+                    <div class="row">
                         <div class="form-group col-xs-12">
-							<button class="page-scroll btn btn-success btn-lg">
-								<a href="#cadEntregador" class="btn-success">Cadastrar</a>
-							</button>
-						</div>
-					</div>
+                            <button class="page-scroll btn btn-success btn-lg">
+                                <a href="#cadEnt" class="btn-success">Cadastrar Entregador</a>
+                            </button>
+                            <button class="page-scroll btn btn-success btn-lg">
+                                <a href="#consultarEnt" class="btn-success">Consultar dados Entregador</a>
+                            </button>
+                            <button class="page-scroll btn btn-success btn-lg">
+                                <a href="#alterarEnt" class="btn-success">Alterar dados Entregador</a>
+                            </button>
+                            <button class="page-scroll btn btn-success btn-lg">
+                                <a href="#removeEnt" class="btn-success">Remover dados Entregador</a>
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
 
+
 			<!-- cadastrar entregador subsection-->
-		<section id="cadEntregador">
+		<section id="cadEnt">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
@@ -592,47 +633,46 @@
             </div>
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2">
-                    <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
-                    <!-- The form should work on most web servers, but if the form is not working you may need to configure your web server differently. -->
-                    <form name="cadEntregador" id="entregadorForm" novalidate>
+                    <form name="cadEntregador" id="entregadorForm" action="entregador/dadosEntregador.php" method="post">
                         <div class="row control-group">
                             <div class="form-group col-xs-12 floating-label-form-group controls">
 								<label for="ide">ID do entregador</label>
-								<input type="number" class="form-control" placeholder="ID Entregador" id="ide" required data-validation-required-message="Por favor, insira o ID do entregador.">
+								<input type="number" name="ide" class="form-control" placeholder="ID Entregador" id="ide" required data-validation-required-message="Por favor, insira o ID do entregador.">
 							<p class="help-block text-danger"></p>
                             </div>
                         </div>
 						<div class="row control-group">
                             <div class="form-group col-xs-12 floating-label-form-group controls">
-                                <label for="name">Nome do Entregador</label>
-                                <input type="text" class="form-control" placeholder="Nome do entregador" id="name" required data-validation-required-message="Por favor, insira o nome do entregador.">
+                                <label for="nameE">Nome do Entregador</label>
+                                <input type="text" name="nameE" class="form-control" placeholder="Nome do entregador" id="nameE" required data-validation-required-message="Por favor, insira o nome do entregador.">
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+                            <div class="form-group col-xs-12 floating-label-form-group controls">
+                                <label for="hora">Horário da entrega</label>
+                                <input type="number" name="hora" class="form-control" placeholder="Horario da entrega" id="hora" required data-validation-required-message="Por favor, insira o horario da entrega.">
                                 <p class="help-block text-danger"></p>
                             </div>
                         </div>
                         <div class="row control-group">
                             <div class="form-group col-xs-6 floating-label-form-group controls">
                                 <label for="phone1">Telefone</label>
-                                <input type="tel" class="form-control" placeholder="Telefone 1" id="phone1" required data-validation-required-message="Por favor, insira seu telefone.">
+                                <input type="tel" name="phone1" class="form-control" placeholder="Telefone 1" id="phone1" required data-validation-required-message="Por favor, insira seu telefone.">
                                 <p class="help-block text-danger"></p>
                             </div>
 							<div class="form-group col-xs-6 floating-label-form-group controls">
                                 <label for="phone2">Telefone</label>
-                                <input type="tel" class="form-control" placeholder="Telefone 2" id="phone2">
+                                <input type="tel" name="phone2" class="form-control" placeholder="Telefone 2" id="phone2">
                                 <p class="help-block text-danger"></p>
                             </div>
                         </div>
-                        <!--<div class="row control-group">
-                            <div class="form-group col-xs-12 floating-label-form-group controls">
-                                <label for="message">Message</label>
-                                <textarea rows="5" class="form-control" placeholder="Message" id="message" required data-validation-required-message="Please enter a message."></textarea>
-                                <p class="help-block text-danger"></p>
-                            </div>
-                        </div>-->
                         <br>
                         <div id="success"></div>
                         <div class="row">
                             <div class="form-group col-xs-12">
                                 <button type="submit" class="btn btn-success btn-lg">Enviar</button>
+                                
+                                <button type="reset" class="btn btn-success btn-lg">Limpar formulário</button>
                             </div>
                         </div>
                     </form>
@@ -641,23 +681,248 @@
         </div>
 		</section>
         </div>
-    </section>
 
-		<!-- Entregas Section -->
-    <section class = "success" id="entregas">
+        <!-- Consultar dados entregador subsection-->
+        <section id="consultarEnt">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2>Entregas</h2>
-                    <hr class="star-light">
+                    <h2>Consultar dados de entregador</h2>
+                    <hr class="star-primary">
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-4 col-lg-offset-2">
-                    <p>Lista de Entregas</p>
+                <div class="col-lg-8 col-lg-offset-2">
+                    <form name="consultaEnt" id="conEntForm" action="entregador/consultaDadosEntregador.php" method="post">
+                        <div id="success"></div>
+                        <div class="row">
+                            <div class="form-group col-xs-12">
+                                <button type="submit" class="btn btn-success btn-lg">Consultar</button>
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
+    </section>
+    
+    <!-- Alterar dados entregador subsection-->
+        <section id="alterarEnt">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2>Alterar dados de entregador</h2>
+                    <hr class="star-primary">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <form name="altEnt" id="altEntForm" action="entregador/salvarDadosEntregador.php" method="post">
+                        <div id="success"></div>
+                        <div class="row">
+                            <div class="form-group col-xs-12">
+                                <label for="ide">IdEntregador cadastrado</label>
+                                <input type="text" name="ide" class="form-control">
+                                <label for="nameE">Novo nome</label>
+                                <input type="text" name="nameE" class="form-control">
+                                <label for="hora">Novo horario</label>
+                                <input type="number" name="hora" class="form-control">
+                                <label for="phone1">Novo telefone 1</label>
+                                <input type="tel" name="phone1" class="form-control">
+                                <label for="phone2">Novo telefone 2</label>
+                                <input type="tel" name="phone2" class="form-control">
+                                <button type="submit" class="btn btn-success btn-lg">Alterar</button>
+                            </div>\
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Remover dados entregador subsection-->
+        <section id="removeEnt">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2>Remover dados de entregador</h2>
+                    <hr class="star-primary">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <form name="removeEnt" id="removeEntForm" action="entregador/removeDadosEntregador.php" method="post">
+                        <div id="success"></div>
+                        <div class="row">
+                            <div class="form-group col-xs-12">
+                                <label for="ide">IdEntregador cadastrado</label>
+                                <input type="text" name="ide" class="form-control">
+                                <button type="submit" class="btn btn-success btn-lg">Remover</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    </section>
+
+		<!-- Produtos Section -->
+    <section id="produto">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2>Produtos</h2>
+                    <hr class="star-primary">
+                    <h4> Escolha a operação que deseja realizar </h4>
+                    <div class="row">
+                        <div class="form-group col-xs-12">
+                            <button class="page-scroll btn btn-success btn-lg">
+                                <a href="#cadastrarPro" class="btn-success">Cadastrar Produto</a>
+                            </button>
+                            <button class="page-scroll btn btn-success btn-lg">
+                                <a href="#consultarPro" class="btn-success">Consultar Produtos</a>
+                            </button>
+                            <button class="page-scroll btn btn-success btn-lg">
+                                <a href="#alterarPro" class="btn-success">Alterar dados Produtos</a>
+                            </button>
+                            <button class="page-scroll btn btn-success btn-lg">
+                                <a href="#removePro" class="btn-success">Remover dados Produtos</a>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- cadastrar produto subsection-->
+        <section id="cadastrarPro">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2>Cadastrar Produto</h2>
+                    <hr class="star-primary">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <form name="cadProduto" id="produtoForm" action="produto/dadosProduto.php" method="post">
+                        <div class="row control-group">
+                            <div class="form-group col-xs-12 floating-label-form-group controls">
+                                <label for="idp">ID do produto</label>
+                                <input type="number" name="idp" class="form-control" placeholder="ID Produto" id="idp" required data-validation-required-message="Por favor, insira o ID do produto.">
+                            <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+                        <div class="row control-group">
+                            <div class="form-group col-xs-12 floating-label-form-group controls">
+                                <label for="nomep">Nome do Produto</label>
+                                <input type="text" name="nomep" class="form-control" placeholder="Nome do produto" id="nomep" required data-validation-required-message="Por favor, insira o nome do produto.">
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+                        <div class="row control-group">
+                            <div class="form-group col-xs-12 floating-label-form-group controls">
+                                <label for="cnpjF">CNPJ do fornecedor do produto</label>
+                                <input type="number" name="cnpjF" class="form-control" placeholder="CNPJ do fornecedor" id="cnpjF" required data-validation-required-message="Por favor, insira o CNPJ do fornecedor.">
+                            <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+                        <br>
+                        <div id="success"></div>
+                        <div class="row">
+                            <div class="form-group col-xs-12">
+                                <button type="submit" class="btn btn-success btn-lg">Enviar</button>
+                                
+                                <button type="reset" class="btn btn-success btn-lg">Limpar formulário</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+        
+        <!-- Consultar dados produto subsection-->
+        <section id="consultarPro">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2>Consultar dados de produto</h2>
+                    <hr class="star-primary">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <form name="consultaPro" id="conProdutoForm" action="produto/consultaDadosProduto.php" method="post">
+                        <div id="success"></div>
+                        <div class="row">
+                            <div class="form-group col-xs-12">
+                                <button type="submit" class="btn btn-success btn-lg">Consultar</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Alterar dados produto subsection-->
+        <section id="alterarPro">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2>Alterar dados de produto</h2>
+                    <hr class="star-primary">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <form name="altProduto" id="altProdutoForm" action="produto/salvarDadosProduto.php" method="post">
+                        <div id="success"></div>
+                        <div class="row">
+                            <div class="form-group col-xs-12">
+                                <label for="idp">IdProduto cadastrado</label>
+                                <input type="text" name="idp" class="form-control">
+                                <label for="nomep">Novo nome</label>
+                                <input type="text" name="nomep" class="form-control">
+                                <label for="cnpjF">Novo CNPJ do fornecedor</label>
+                                <input type="text" name="cnpjF" class="form-control">
+                                <button type="submit" class="btn btn-success btn-lg">Alterar</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Remover dados produto subsection-->
+        <section id="removePro">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2>Remover dados de produto</h2>
+                    <hr class="star-primary">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <form name="removeProduto" id="removeProdutoForm" action="produto/removeDadosProduto.php" method="post">
+                        <div id="success"></div>
+                        <div class="row">
+                            <div class="form-group col-xs-12">
+                                <label for="idProduto">IdProduto cadastrado</label>
+                                <input type="text" name="idProduto" class="form-control">
+                                <button type="submit" class="btn btn-success btn-lg">Remover</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
     </section>
 
 	    <!-- Veículo Section -->
@@ -697,7 +962,7 @@
             </div>
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2">
-                    <form name="cadVeiculo" id="veiculoForm" action="dadosVeiculo.php" method="post" novalidate>
+                    <form name="cadVeiculo" id="veiculoForm" action="veiculo/dadosVeiculo.php" method="post" novalidate>
 						<div class="row control-group">
                             <div class="form-group col-xs-12 floating-label-form-group controls">
                                 <label for="placa">Placa</label>
@@ -749,7 +1014,7 @@
             </div>
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2">
-                    <form name="consultaVeiculo" id="conVeiculoForm" action="consultaDadosVeiculo.php" method="post">
+                    <form name="consultaVeiculo" id="conVeiculoForm" action="veiculo/consultaDadosVeiculo.php" method="post">
                         <div id="success"></div>
                         <div class="row">
                             <div class="form-group col-xs-12">
@@ -773,7 +1038,7 @@
             </div>
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2">
-                    <form name="altVeiculo" id="altVeiculoForm" action="salvarDadosVeiculo.php" method="post">
+                    <form name="altVeiculo" id="altVeiculoForm" action="veiculo/salvarDadosVeiculo.php" method="post">
                         <div id="success"></div>
                         <div class="row">
                             <div class="form-group col-xs-12">
@@ -805,7 +1070,7 @@
             </div>
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2">
-                    <form name="removeVeiculo" id="removeVeiculoForm" action="removeDadosVeiculo.php" method="post">
+                    <form name="removeVeiculo" id="removeVeiculoForm" action="veiculo/removeDadosVeiculo.php" method="post">
                         <div id="success"></div>
                         <div class="row">
                             <div class="form-group col-xs-12">
@@ -877,231 +1142,6 @@
             <i class="fa fa-chevron-up"></i>
         </a>
     </div>
-
-    <!-- Portfolio Modals -->
-	<!--
-    <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-content">
-            <div class="close-modal" data-dismiss="modal">
-                <div class="lr">
-                    <div class="rl">
-                    </div>
-                </div>
-            </div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 col-lg-offset-2">
-                        <div class="modal-body">
-                            <h2>Project Title</h2>
-                            <hr class="star-primary">
-                            <img src="img/portfolio/Churrasco.png" class="img-responsive img-centered" alt="">
-                            <p>Churrascaria Holandês <a href="https://sellfy.com/p/8Q9P/jV3VZ/">Flat Icons</a>. On their website, you can download their free set with 16 icons, or you can purchase the entire set with 146 icons for only $12!</p>
-                            <ul class="list-inline item-details">
-                                <li>Client:
-                                    <strong><a href="#">Churrascaria Holandês</a>
-                                    </strong>
-                                </li>
-                                <li>Date:
-                                    <strong>Abril 2017
-                                    </strong>
-                                </li>
-                                <li>Service:
-                                    <strong>Serviço de Entrega
-                                    </strong>
-                                </li>
-                            </ul>
-                            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-content">
-            <div class="close-modal" data-dismiss="modal">
-                <div class="lr">
-                    <div class="rl">
-                    </div>
-                </div>
-            </div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 col-lg-offset-2">
-                        <div class="modal-body">
-                            <h2>Project Title</h2>
-                            <hr class="star-primary">
-                            <img src="img/portfolio/Bolo.png" class="img-responsive img-centered" alt="">
-                            <p>SwitchCake confeitaria<a href="https://sellfy.com/p/8Q9P/jV3VZ/">Flat Icons</a>. On their website, you can download their free set with 16 icons, or you can purchase the entire set with 146 icons for only $12!</p>
-                            <ul class="list-inline item-details">
-                                <li>Client:
-                                    <strong><a href="#">SwitchCake</a>
-                                    </strong>
-                                </li>
-                                <li>Date:
-                                    <strong>Maio 2017</a>
-                                    </strong>
-                                </li>
-                                <li>Service:
-                                    <strong>Serviço de entrega
-                                    </strong>
-                                </li>
-                            </ul>
-                            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-content">
-            <div class="close-modal" data-dismiss="modal">
-                <div class="lr">
-                    <div class="rl">
-                    </div>
-                </div>
-            </div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 col-lg-offset-2">
-                        <div class="modal-body">
-                            <h2>Project Title</h2>
-                            <hr class="star-primary">
-                            <img src="img/portfolio/Hamburguer.png" class="img-responsive img-centered" alt="">
-                            <p> Hamburgueria do Thiago<a href="https://sellfy.com/p/8Q9P/jV3VZ/">Flat Icons</a>. On their website, you can download their free set with 16 icons, or you can purchase the entire set with 146 icons for only $12!</p>
-                            <ul class="list-inline item-details">
-                                <li>Client:
-                                    <strong><a href="#">Hamburgueria do Thiago</a>
-                                    </strong>
-                                </li>
-                                <li>Date:
-                                    <strong>Maio 2017
-                                    </strong>
-                                </li>
-                                <li>Service:
-                                    <strong>Serviço de entrega
-                                    </strong>
-                                </li>
-                            </ul>
-                            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-content">
-            <div class="close-modal" data-dismiss="modal">
-                <div class="lr">
-                    <div class="rl">
-                    </div>
-                </div>
-            </div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 col-lg-offset-2">
-                        <div class="modal-body">
-                            <h2>Project Title</h2>
-                            <hr class="star-primary">
-                            <img src="img/portfolio/Pizza.png" class="img-responsive img-centered" alt="">
-                            <p>Alo pizza <a href="https://sellfy.com/p/8Q9P/jV3VZ/">Flat Icons</a>. On their website, you can download their free set with 16 icons, or you can purchase the entire set with 146 icons for only $12!</p>
-                            <ul class="list-inline item-details">
-                                <li>Client:
-                                    <strong><a href="#">Serviço de entrega</a>
-                                    </strong>
-                                </li>
-                                <li>Date:
-                                    <strong>Maio 2017
-                                    </strong>
-                                </li>
-                                <li>Service:
-                                    <strong>Serviço de entrega
-                                    </strong>
-                                </li>
-                            </ul>
-                            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-content">
-            <div class="close-modal" data-dismiss="modal">
-                <div class="lr">
-                    <div class="rl">
-                    </div>
-                </div>
-            </div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 col-lg-offset-2">
-                        <div class="modal-body">
-                            <h2>Project Title</h2>
-                            <hr class="star-primary">
-                            <img src="img/portfolio/Sushi.png" class="img-responsive img-centered" alt="">
-                            <p>Sushi Brasil comida japonesa <a href="https://sellfy.com/p/8Q9P/jV3VZ/">Flat Icons</a>. On their website, you can download their free set with 16 icons, or you can purchase the entire set with 146 icons for only $12!</p>
-                            <ul class="list-inline item-details">
-                                <li>Client:
-                                    <strong><a href="#">Sushi Brasil</a>
-                                    </strong>
-                                </li>
-                                <li>Date:
-                                    <strong>Abril 2017
-                                    </strong>
-                                </li>
-                                <li>Service:
-                                    <strong>Serviço de entrega
-                                    </strong>
-                                </li>
-                            </ul>
-                            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="portfolio-modal modal fade" id="portfolioModal6" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-content">
-            <div class="close-modal" data-dismiss="modal">
-                <div class="lr">
-                    <div class="rl">
-                    </div>
-                </div>
-            </div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 col-lg-offset-2">
-                        <div class="modal-body">
-                            <h2>Project Title</h2>
-                            <hr class="star-primary">
-                            <img src="img/portfolio/Taco.png" class="img-responsive img-centered" alt="">
-                            <p>Restaurante de comida mexicana <a href="https://sellfy.com/p/8Q9P/jV3VZ/">Flat Icons</a>. On their website, you can download their free set with 16 icons, or you can purchase the entire set with 146 icons for only $12!</p>
-                            <ul class="list-inline item-details">
-                                <li>Client:
-                                    <strong><a href="#">Alabamba comida mexicana</a>
-                                    </strong>
-                                </li>
-                                <li>Date:
-                                    <strong>Março 2017
-                                    </strong>
-                                </li>
-                                <li>Service:
-                                    <strong> Serviço de entrega
-                                    </strong>
-                                </li>
-                            </ul>
-                            <button id="btnSubmit" type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>-->
 
     <!-- jQuery -->
     <script src="vendor/jquery/jquery.min.js"></script>

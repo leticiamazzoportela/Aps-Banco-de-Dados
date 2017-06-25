@@ -11,13 +11,13 @@
 
 
     <!-- Bootstrap Core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Theme CSS -->
-    <link href="css/freelancer.min.css" rel="stylesheet">
+    <link href="../css/freelancer.min.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
-    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
 
@@ -33,14 +33,14 @@
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand" href="index.html">Delivery Now</a>
+                <a class="navbar-brand" href="../index.html">Delivery Now</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li class="hidden">
-                        <a href="index.html"></a>
+                        <a href="../index.html"></a>
                     </li>
                 </ul>
             </div>
@@ -51,9 +51,9 @@
 </body>
 </html>
 <?php
-	include ('conexaoBanco.php');
+	include ('../conexaoBanco.php');
 
-	$executa= $pdo->query("SELECT * FROM fornecedor");
+	$executa= $pdo->query("SELECT * FROM entregador e, telefone_entregador t WHERE e.idEntregador = t.Entregador_idEntregador");
 	
 	if($executa){
 		foreach($executa as $resultado){
@@ -61,13 +61,12 @@
 			echo "<div class=container>";
 			echo		"<div class=row>";
 			echo			"<div class=col-lg-12 text-center>";
-			echo				"<h4>Fornecedor</h4>";
-									print "CNPJ: ".$resultado['CNPJ'].";"."<br>";
-									print "Nome: ".$resultado['Nome'].";"."<br>";
-									print "Bairro: ".$resultado['Bairro'].";"."\t";
-									print "Rua: ".$resultado['Rua'].";"."\t";
-									print "Numero: ".$resultado['Numero'].";"."<br>";
-									print "Email: ".$resultado['Email']."<br><br>";
+			echo				"<h4>Entregadores</h4>";
+									print "id entregador: ".$resultado['idEntregador'].";"."<br>";
+									print "nome: ".$resultado['Nome'].";"."<br>";
+									print "horario da entrega: ".$resultado['HorarioEntrega'].";"."<br>";
+                                    print "Telefone: ".$resultado['NroTelefone'].";"."\t";
+
 			echo			"</div>";
 			echo		"</div>";
 			echo	"</div>";
@@ -76,7 +75,7 @@
 		}
 	}
 	else if(count($executa) == 0){
-		echo "<script> alert('Não existem itens cadastrados'); window.location.assign('index.html'); </script>";
+		echo "<script> alert('Não existem itens cadastrados'); window.location.assign('../index.html'); </script>";
 		print_r($pdo->errorInfo());
 	}
 
