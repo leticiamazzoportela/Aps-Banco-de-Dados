@@ -61,13 +61,19 @@
 							-- pr.NomeProduto = 'Pizza Mexicana');
 
 
--- 7) Encontrar o id e o nome de um produto que foi pedido mais de 3 vezes--
+-- 7) Encontrar o id e o nome de um produto comprado no dia '2017-03-12' mas não no dia '2017-03-14'--
 
 -- select idProduto, NomeProduto
--- from Produto pr, Pedido_Produto pp
--- where pr.idProduto = pp.Produto_idProduto
--- group by pp.Produto_idProduto
--- having count(*) >= 3;
+-- from Produto pr, Pedido_Produto pp, Pedido p
+-- where pr.idProduto = pp.Produto_idProduto and	
+	 -- pp.Pedido_idPedido = p.idPedido and
+     -- p.DataPedido = '2017-03-12' and
+     -- pr.idProduto not in (select idProduto
+						-- from Produto pr2, Pedido_Produto pp2, Pedido p2
+						-- where pr2.idProduto = pp2.Produto_idProduto and	
+								-- pp2.Pedido_idPedido = p2.idPedido and
+								-- p2.DataPedido = '2017-03-14');
+
 
 
 -- 8) Encontre o id e o valor do pedido de maior valor  --
@@ -80,7 +86,7 @@
 
 -- 9) encontre o valor médio dos pedidos feito no dia '2017-03-20', sendo que nestes não foi pedido Bolo mágico--
 
--- select avg(ValorTotal)
+-- select avg(ValorTotal) as r
 -- from Pedido p
 -- where p.DataPedido = '2017-03-20' and
 	 -- p.idPedido not in (select idPedido
@@ -98,10 +104,10 @@
 	 -- p.Fornecedor_CNPJ = f.CNPJ and
      -- f.Nome = 'Tacos do Elfo' and 
      -- c.idCliente not in (select c.idCliente
-						 -- from Cliente c, Pedido p, Fornecedor f
-						 -- where c.idCliente = p.Cliente_idCliente and
-							   -- p.Fornecedor_CNPJ = f.CNPJ and
-							   -- f.Nome = 'Churrascaria da Bruxa');
+						-- from Cliente c, Pedido p, Fornecedor f
+						-- where c.idCliente = p.Cliente_idCliente and
+							 --  p.Fornecedor_CNPJ = f.CNPJ and
+							  -- f.Nome = 'Churrascaria da Bruxa');
 	  
 
 
