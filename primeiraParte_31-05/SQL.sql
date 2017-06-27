@@ -441,7 +441,7 @@ values(360, 12053, '2017-03-12'), (360, 25369, '2017-03-12');
 
 
 insert into Pedido_Produto(Produto_idProduto, Pedido_idPedido)
-values(1, 1),(2, 6),(1, 16), (2, 29);
+values(1, 1),(2, 6),(6, 16), (2, 29);
 
 insert into Pedido_Produto(Produto_idProduto, Pedido_idPedido)
 values(1, 3), (4, 18),(4, 27);

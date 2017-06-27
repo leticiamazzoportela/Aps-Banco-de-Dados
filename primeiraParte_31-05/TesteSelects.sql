@@ -30,7 +30,7 @@
 
 -- select Veiculo_Placa
 -- from Usa u
--- where u.Veiculo_Placa not in (select Veiculo_placa
+-- where u.Veiculo_Placa not in (select Veiculo_Placa
 							 -- from Usa S
                              -- where S.Data = '2017-03-17');
                              
@@ -48,5 +48,61 @@
 									   -- PP1.Produto_idProduto = Pr1.idProduto and
 									   -- Pr1.NomeProduto = 'Bolo de Aniversario');
                                        
+                                       
+-- 6) Encontre o ID e o Nome dos clientes que não compraram 'Pizza Mexicana' --
+
+-- select c.idCliente, c.Nome
+-- from Cliente c
+-- where c.idCliente not in (select idCliente
+						 -- from Cliente c, Pedido_Produto pp, Produto pr, Pedido p
+						 -- where c.idCliente = p.Cliente_idCliente and
+							-- p.idPedido = pp.Pedido_idPedido and
+							-- pp.Produto_idProduto = pr.idProduto and
+							-- pr.NomeProduto = 'Pizza Mexicana');
+
+
+-- 7) Encontrar o id e o nome de um produto que foi pedido mais de 3 vezes--
+
+-- select idProduto, NomeProduto
+-- from Produto pr, Pedido_Produto pp
+-- where pr.idProduto = pp.Produto_idProduto
+-- group by pp.Produto_idProduto
+-- having count(*) >= 3;
+
+
+-- 8) Encontre o id e o valor do pedido de maior valor  --
+
+-- select idPedido, ValorTotal
+-- from Pedido p
+-- where p.ValorTotal = (select max(p2.ValorTotal)
+					  -- from Pedido p2);
+                      
+
+-- 9) encontre o valor médio dos pedidos feito no dia '2017-03-20', sendo que nestes não foi pedido Bolo mágico--
+
+-- select avg(ValorTotal)
+-- from Pedido p
+-- where p.DataPedido = '2017-03-20' and
+	 -- p.idPedido not in (select idPedido
+						-- from Pedido p1, Produto pr, Pedido_Produto pp
+                        -- where p1.idPedido = pp.Pedido_idPedido and
+							 --  pp.Produto_idProduto = pr.idProduto and
+                             --  pr.NomeProduto = 'Bolo Magico');
+
+
+-- 10) Encontre o nome dos clientes que já compraram do fornecedor Tacos do Elfo mas não compraram da Churrascaria da Bruxa --
+
+-- select c.Nome
+-- from Cliente c, Pedido p, Fornecedor f
+-- where c.idCliente = p.Cliente_idCliente and
+	 -- p.Fornecedor_CNPJ = f.CNPJ and
+     -- f.Nome = 'Tacos do Elfo' and 
+     -- c.idCliente not in (select c.idCliente
+						 -- from Cliente c, Pedido p, Fornecedor f
+						 -- where c.idCliente = p.Cliente_idCliente and
+							   -- p.Fornecedor_CNPJ = f.CNPJ and
+							   -- f.Nome = 'Churrascaria da Bruxa');
+	  
+
 
 
