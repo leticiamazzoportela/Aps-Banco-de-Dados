@@ -245,13 +245,13 @@ values(30164, 'Expresso', 'Carro', 2017);
 -- Inserindo em Produto -- 
 
 insert into Produto (NomeProduto, idProduto, Fornecedor_CNPJ)
-values ('XBurguer', 1, 1234);
+values ('XBurguer', 1, 1234), ('Xfrango', 15, 1234), ('XCalabresa', 16, 1234);
 
 insert into Produto (NomeProduto, idProduto, Fornecedor_CNPJ)
 values ('XBacon', 2, 1234);
 
 insert into Produto (NomeProduto, idProduto, Fornecedor_CNPJ)
-values ('XBurguer', 3, 1357);
+values ('XBurguer', 3, 1357), ('XQueijo', 17, 1357);
 
 insert into Produto (NomeProduto, idProduto, Fornecedor_CNPJ)
 values ('XSalada', 4, 1357);
@@ -416,16 +416,16 @@ values(29, 44.00, 12, 1234, '2017-03-25', 'cartão', 360);
 
 
 insert into Usa (Entregador_idEntregador, Veiculo_Placa, Data)
-values(693, 35896, '2017-03-13'), (693, 38952, '2017-03-14');
+values(982, 35896, '2017-03-13'), (982, 12053, '2017-03-16');
 
 insert into Usa (Entregador_idEntregador, Veiculo_Placa, Data)
-values(852, 25369, '2017-03-14'), (852, 12053, '2017-03-15');
+values(852, 25369, '2017-03-14'), (852, 35896, '2017-03-15');
 
 insert into Usa (Entregador_idEntregador, Veiculo_Placa, Data)
-values(982, 52094, '2017-03-13');
+values(982, 52094, '2017-03-13'), (693, 38952, '2017-03-14');
 
 insert into Usa (Entregador_idEntregador, Veiculo_Placa, Data)
-values(742, 10493, '2017-03-12');
+values(742, 10493, '2017-03-12'), (742, 35896, '2017-03-13');
 
 insert into Usa (Entregador_idEntregador, Veiculo_Placa, Data)
 values(602, 30164, '2017-03-16'), (602, 12053, '2017-03-16');
@@ -460,5 +460,6 @@ values(11, 11), (12, 17), (11, 22), (11, 28);
 
 insert into Pedido_Produto(Produto_idProduto, Pedido_idPedido)
 values(13, 10), (13, 15), (13, 19), (14, 23);
+
 
 
