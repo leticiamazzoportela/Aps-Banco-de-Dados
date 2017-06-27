@@ -33,7 +33,7 @@
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand" href="../index.html">Delivery Now</a>
+                <a class="navbar-brand" href="../index.html#complexas">Voltar para Consultas Complexas</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -50,34 +50,39 @@
     </nav>
 </body>
 </html>
+
 <?php
     include ('../conexaoBanco.php');
 
-    $executa= $pdo->query("SELECT * FROM cliente c, telefone_cliente t WHERE c.idCliente = t.Cliente_idCliente");
+    $executa= $pdo->query("SELECT P.Cliente_idCliente
+                            FROM pedido P, produto Pr, pedido_produto PP
+                            WHERE PP.Pedido_idPedido = P.idPedido AND
+                                  PP.Produto_idProduto = Pr.idProduto AND
+                                  Pr.NomeProduto = 'XSalada' AND
+                                  P.Cliente_idCliente NOT IN ($pdo->query(SELECT P1.Cliente_idCliente
+                                                                          FROM pedido P1, produto Pr1, pedido_produto PP1
+                                                                          WHERE PP1.Pedido_idPedido = P1.idPedido AND
+                                                                                PP1.Produto_idProduto = Pr1.idProduto AND
+                                                                                Pr1.NomeProduto = 'Bolo de Aniversario'))");
     
     if($executa){
+        echo "<section id='portfolio'>";
+        echo "<div class=container>";
+        echo        "<div class=row>";
+        echo            "<div class=col-lg-12 text-center>";
+        echo                "<h4>Consulta 5</h4>";
+            
         foreach($executa as $resultado){
-            echo "<section id='portfolio'>";
-            echo "<div class=container>";
-            echo        "<div class=row>";
-            echo            "<div class=col-lg-12 text-center>";
-            echo                "<h4>Cliente</h4>";
-                                    print "idCliente: ".$resultado['idCliente'].";"."<br>";
-                                    print "Nome: ".$resultado['Nome'].";"."<br>";
-                                    print "Bairro: ".$resultado['Bairro'].";"."\t";
-                                    print "Rua: ".$resultado['Rua'].";"."\t";
-                                    print "Numero: ".$resultado['Numero'].";"."<br>";
-                                    print "Email: ".$resultado['Email']."<br><br>";
-                                    print "Telefone: ".$resultado['NroTelefone'].";"."\t";
-            echo            "</div>";
-            echo        "</div>";
-            echo    "</div>";
-            echo "</section>";
-        
+            print "idCliente: ".$resultado['Cliente_idCliente'].";"."<br>";
         }
+        
+        echo            "</div>";
+        echo        "</div>";
+        echo    "</div>";
+        echo "</section>";
     }
     else if(count($executa) == 0){
-        echo "<script> alert('Não existem itens cadastrados'); window.location.assign('../index.html'); </script>";
+        echo "<script> alert('Não existem itens correspondentes à consulta!!!'); window.location.assign('../index.html'); </script>";
         print_r($pdo->errorInfo());
     }
 

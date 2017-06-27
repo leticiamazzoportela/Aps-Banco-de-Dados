@@ -33,7 +33,7 @@
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand" href="../index.html">Delivery Now</a>
+                <a class="navbar-brand" href="../index.html#entregador">Voltar para Entregadores</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -56,23 +56,23 @@
 	$executa= $pdo->query("SELECT * FROM entregador e, telefone_entregador t WHERE e.idEntregador = t.Entregador_idEntregador");
 	
 	if($executa){
-		foreach($executa as $resultado){
-			echo "<section id='portfolio'>";
-			echo "<div class=container>";
-			echo		"<div class=row>";
-			echo			"<div class=col-lg-12 text-center>";
-			echo				"<h4>Entregadores</h4>";
-									print "id entregador: ".$resultado['idEntregador'].";"."<br>";
-									print "nome: ".$resultado['Nome'].";"."<br>";
-									print "horario da entrega: ".$resultado['HorarioEntrega'].";"."<br>";
-                                    print "Telefone: ".$resultado['NroTelefone'].";"."\t";
+        echo "<section id='portfolio'>";
+        echo "<div class=container>";
+        echo        "<div class=row>";
+        echo            "<div class=col-lg-12 text-center>";
+        echo                "<h4>Dados de Entregadores</h4>";
 
-			echo			"</div>";
-			echo		"</div>";
-			echo	"</div>";
-			echo "</section>";
-        
+		foreach($executa as $resultado){
+			print "id entregador: ".$resultado['idEntregador'].";"."<br>";
+			print "nome: ".$resultado['Nome'].";"."<br>";
+			print "horario da entrega: ".$resultado['HorarioEntrega'].";"."<br>";
+            print "Telefone: ".$resultado['NroTelefone'].";"."<br><br>";
 		}
+
+        echo            "</div>";
+        echo        "</div>";
+        echo    "</div>";
+        echo "</section>";
 	}
 	else if(count($executa) == 0){
 		echo "<script> alert('Não existem itens cadastrados'); window.location.assign('../index.html'); </script>";

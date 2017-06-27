@@ -33,7 +33,7 @@
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand" href="../index.html">Delivery Now</a>
+                <a class="navbar-brand" href="../index.html#complexas">Voltar para Consultas Complexas</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -53,31 +53,30 @@
 <?php
     include ('../conexaoBanco.php');
 
-    $executa= $pdo->query("SELECT * FROM cliente c, telefone_cliente t WHERE c.idCliente = t.Cliente_idCliente");
+    $executa= $pdo->query("SELECT f.Nome
+                            FROM fornecedor f, produto p
+                            WHERE f.CNPJ = p.Fornecedor_CNPJ 
+                            GROUP BY f.CNPJ
+                            HAVING COUNT(*) >= 3");
     
     if($executa){
+        echo "<section id='portfolio'>";
+        echo "<div class=container>";
+        echo        "<div class=row>";
+        echo            "<div class=col-lg-12 text-center>";
+        echo                "<h4>Consulta 2</h4>";
+            
         foreach($executa as $resultado){
-            echo "<section id='portfolio'>";
-            echo "<div class=container>";
-            echo        "<div class=row>";
-            echo            "<div class=col-lg-12 text-center>";
-            echo                "<h4>Cliente</h4>";
-                                    print "idCliente: ".$resultado['idCliente'].";"."<br>";
-                                    print "Nome: ".$resultado['Nome'].";"."<br>";
-                                    print "Bairro: ".$resultado['Bairro'].";"."\t";
-                                    print "Rua: ".$resultado['Rua'].";"."\t";
-                                    print "Numero: ".$resultado['Numero'].";"."<br>";
-                                    print "Email: ".$resultado['Email']."<br><br>";
-                                    print "Telefone: ".$resultado['NroTelefone'].";"."\t";
-            echo            "</div>";
-            echo        "</div>";
-            echo    "</div>";
-            echo "</section>";
-        
+            print "Nome do fornecedor: ".$resultado['Nome'].";"."<br>";
         }
+        
+        echo            "</div>";
+        echo        "</div>";
+        echo    "</div>";
+        echo "</section>";
     }
     else if(count($executa) == 0){
-        echo "<script> alert('Não existem itens cadastrados'); window.location.assign('../index.html'); </script>";
+        echo "<script> alert('Não existem itens correspondentes à consulta!!!'); window.location.assign('../index.html'); </script>";
         print_r($pdo->errorInfo());
     }
 

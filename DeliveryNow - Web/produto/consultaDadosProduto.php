@@ -33,7 +33,7 @@
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand" href="../index.html">Delivery Now</a>
+                <a class="navbar-brand" href="../index.html#produto">Voltar para Produtos</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -56,21 +56,22 @@
 	$executa= $pdo->query("SELECT * FROM produto p, fornecedor f WHERE p.Fornecedor_CNPJ = f.CNPJ");
 	
 	if($executa){
+        echo "<section id='portfolio'>";
+        echo "<div class=container>";
+        echo        "<div class=row>";
+        echo            "<div class=col-lg-12 text-center>";
+        echo                "<h4>Dados dos Produtos</h4>";
+
 		foreach($executa as $resultado){
-			echo "<section id='portfolio'>";
-			echo "<div class=container>";
-			echo		"<div class=row>";
-			echo			"<div class=col-lg-12 text-center>";
-			echo				"<h4>Cliente</h4>";
-									print "idProduto: ".$resultado['idProduto'].";"."<br>";
-									print "Nome: ".$resultado['NomeProduto'].";"."<br>";
-									print "CNPJ do fornecedor: ".$resultado['Fornecedor_CNPJ'].";"."\t";
-			echo			"</div>";
-			echo		"</div>";
-			echo	"</div>";
-			echo "</section>";
-        
+			print "idProduto: ".$resultado['idProduto'].";"."<br>";
+			print "Nome: ".$resultado['NomeProduto'].";"."<br>";
+			print "CNPJ do fornecedor: ".$resultado['Fornecedor_CNPJ'].";"."<br><br>";
 		}
+
+        echo            "</div>";
+        echo        "</div>";
+        echo    "</div>";
+        echo "</section>";
 	}
 	else if(count($executa) == 0){
 		echo "<script> alert('Não existem itens cadastrados'); window.location.assign('../index.html'); </script>";
