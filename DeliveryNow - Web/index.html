@@ -331,7 +331,7 @@
                     <form name="cadCliente" id="clienteForm" action="cliente/dadosCliente.php" method="post">
                         <div class="row control-group">
                             <div class="form-group col-xs-12 floating-label-form-group controls">
-								<label for="id">ID do cliente</label>
+								<label for="idCliente">ID do cliente</label>
 								<input type="number" name="idCliente" class="form-control" placeholder="ID Cliente" id="idCliente" required data-validation-required-message="Por favor, insira o ID do cliente.">
 							<p class="help-block text-danger"></p>
                             </div>
@@ -370,12 +370,12 @@
                         <div class="row control-group">
                             <div class="form-group col-xs-6 floating-label-form-group controls">
                                 <label for="phone1">Telefone</label>
-                                <input type="tel" class="form-control" placeholder="Telefone 1" id="phone1" required data-validation-required-message="Por favor, insira seu telefone.">
+                                <input type="tel" name="phone1" class="form-control" placeholder="Telefone 1" id="phone1" required data-validation-required-message="Por favor, insira seu telefone.">
                                 <p class="help-block text-danger"></p>
                             </div>
 							<div class="form-group col-xs-6 floating-label-form-group controls">
                                 <label for="phone2">Telefone</label>
-                                <input type="tel" class="form-control" placeholder="Telefone 2" id="phone2">
+                                <input type="tel" name="phone2" class="form-control" placeholder="Telefone 2" id="phone2">
                                 <p class="help-block text-danger"></p>
                             </div>
                         </div>
@@ -485,116 +485,7 @@
     </section>
     </section>
 
-	    <!-- Consultas complexas Section -->
-    <section id="complexas">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h2>Pedidos</h2>
-                    <hr class="star-primary">
-                    <h4> Escolha a consulta que deseja realizar </h4>
-                    </div>
-                    </div>
-                    <div class="row">
-                        <div class="form-group col-xs-12">
-                            <p> 1) Consultar o ID dos entregadores que usaram o veículo x, mas não o y.
-                                <br>
-                                <form action="consultas/consulta1.php">
-                                    <button class="page-scroll btn btn-success btn-lg">
-                                        <a href="" class="btn-success">Consultar</a>
-                                    </button>
-                                </form>
-                            </p>
-                            <br>
-                            <p> 2) Consultar o nome dos clientes que nunca pagaram usando cartão.
-                                <br>
-                                <form action="consultas/consulta2.php">
-                                    <button class="page-scroll btn btn-success btn-lg">
-                                        <a href="" class="btn-success">Consultar</a>
-                                    </button>
-                                </form>
-                            </p>
-                            <br>
-                            <p> 3) Consultar o bairro que possui mais clientes cadastrados.
-                                <br>
-                                <form action="consultas/consulta3.php">
-                                    <button class="page-scroll btn btn-success btn-lg">
-                                        <a href="" class="btn-success">Consultar</a>
-                                    </button>
-                                </form>
-                            </p>
-                            <br>
-                            <p> 4) Consultar a placa dos veículos que não foram usados no dia "17/03/2017".
-                                <br>
-                                <form action="consultas/consulta4.php">
-                                    <button class="page-scroll btn btn-success btn-lg">
-                                        <a href="" class="btn-success">Consultar</a>
-                                    </button>
-                                </form>
-                            </p>
-                            <br>
-                            <p> 5) Consultar os IDs dos clientes que compraram "X-salada" e "Bolo de  Aniversário".
-                                <br>
-                                <form action="consultas/consulta5.php">
-                                    <button class="page-scroll btn btn-success btn-lg">
-                                        <a href="" class="btn-success">Consultar</a>
-                                    </button>
-                                </form>
-                            </p>
-                            <br>
-                            <p> 6) Consultar os clientes que nunca compraram "Pizza mexicana".
-                                <br>
-                                <form action="consultas/consulta6.php">
-                                    <button class="page-scroll btn btn-success btn-lg">
-                                        <a href="" class="btn-success">Consultar</a>
-                                    </button>
-                                </form>
-                            </p>
-                            <br>
-                            <p> 7) Consultar o produto mais pedido.
-                                <br>
-                                <form action="consultas/consulta7.php">
-                                    <button class="page-scroll btn btn-success btn-lg">
-                                        <a href="" class="btn-success">Consultar</a>
-                                    </button>
-                                </form>
-                            </p>
-                            <br>
-                            <p> 8) Consultar o pedido de maior valor feito no dia "13/03/2017".
-                                <br>
-                                <form action="consultas/consulta8.php">
-                                    <button class="page-scroll btn btn-success btn-lg">
-                                        <a href="" class="btn-success">Consultar</a>
-                                    </button>
-                                </form>
-                            </p>
-                            <br>
-                            <p> 9) Consultar o valor médio dos pedidos feitos no dia "20/03/2017".
-                                <br>
-                                <form action="consultas/consulta9.php">
-                                    <button class="page-scroll btn btn-success btn-lg">
-                                        <a href="" class="btn-success">Consultar</a>
-                                    </button>
-                                </form>
-                            </p>
-                            <br>
-                            <p> 10) Consultar os IDs dos clientes que já compraram de todos os fornecedores.
-                                <br>
-                                <form action="consultas/consulta10.php">
-                                    <button class="page-scroll btn btn-success btn-lg">
-                                        <a href="" class="btn-success">Consultar</a>
-                                    </button>
-                                </form>
-                            </p>
-                            <br>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-	    <!-- Entregador Section -->
+    <!-- Entregador Section -->
     <section id="entregador">
         <div class="container">
             <div class="row">
@@ -1085,6 +976,115 @@
         </div>
     </section>
 		
+    </section>
+
+    <!-- Consultas complexas Section -->
+    <section id="complexas">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2>Consultas Complexas</h2>
+                    <hr class="star-primary">
+                    <h4> Escolha a consulta que deseja realizar </h4>
+                    </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-xs-12">
+                            <p> 1) Consultar o ID dos entregadores que usaram o veículo x, mas não o y.
+                                <br>
+                                <form action="consultas/consulta1.php">
+                                    <div class="form-group col-xs-12">
+                                        <button type="submit" class="btn btn-success btn-lg">Consultar</button>
+                                    </div>
+                                </form>
+                            </p>
+                            <br>
+                            <p> 2) Consultar o nome dos clientes que nunca pagaram usando cartão.
+                                <br>
+                                <form action="consultas/consulta2.php">
+                                    <div class="form-group col-xs-12">
+                                        <button type="submit" class="btn btn-success btn-lg">Consultar</button>
+                                    </div>
+                                </form>
+                            </p>
+                            <br>
+                            <p> 3) Consultar o bairro que possui mais clientes cadastrados.
+                                <br>
+                                <form action="consultas/consulta3.php">
+                                    <div class="form-group col-xs-12">
+                                        <button type="submit" class="btn btn-success btn-lg">Consultar</button>
+                                    </div>
+                                </form>
+                            </p>
+                            <br>
+                            <p> 4) Consultar a placa dos veículos que não foram usados no dia "17/03/2017".
+                                <br>
+                                <form action="consultas/consulta4.php">
+                                    <div class="form-group col-xs-12">
+                                        <button type="submit" class="btn btn-success btn-lg">Consultar</button>
+                                    </div>
+                                </form>
+                            </p>
+                            <br>
+                            <p> 5) Consultar os IDs dos clientes que compraram "X-salada" e "Bolo de  Aniversário".
+                                <br>
+                                <form action="consultas/consulta5.php">
+                                    <div class="form-group col-xs-12">
+                                        <button type="submit" class="btn btn-success btn-lg">Consultar</button>
+                                    </div>
+                                </form>
+                            </p>
+                            <br>
+                            <p> 6) Consultar os clientes que nunca compraram "Pizza mexicana".
+                                <br>
+                                <form action="consultas/consulta6.php">
+                                    <div class="form-group col-xs-12">
+                                        <button type="submit" class="btn btn-success btn-lg">Consultar</button>
+                                    </div>
+                                </form>
+                            </p>
+                            <br>
+                            <p> 7) Consultar o produto mais pedido.
+                                <br>
+                                <form action="consultas/consulta7.php">
+                                    <div class="form-group col-xs-12">
+                                        <button type="submit" class="btn btn-success btn-lg">Consultar</button>
+                                    </div>
+                                </form>
+                            </p>
+                            <br>
+                            <p> 8) Consultar o pedido de maior valor feito no dia "13/03/2017".
+                                <br>
+                                <form action="consultas/consulta8.php">
+                                    <div class="form-group col-xs-12">
+                                        <button type="submit" class="btn btn-success btn-lg">Consultar</button>
+                                    </div>
+                                </form>
+                            </p>
+                            <br>
+                            <p> 9) Consultar o valor médio dos pedidos feitos no dia "20/03/2017".
+                                <br>
+                                <form action="consultas/consulta9.php">
+                                    <div class="form-group col-xs-12">
+                                        <button type="submit" class="btn btn-success btn-lg">Consultar</button>
+                                    </div>
+                                </form>
+                            </p>
+                            <br>
+                            <p> 10) Consultar os IDs dos clientes que já compraram de todos os fornecedores.
+                                <br>
+                                <form action="consultas/consulta10.php">
+                                    <div class="form-group col-xs-12">
+                                        <button type="submit" class="btn btn-success btn-lg">Consultar</button>
+                                    </div>
+                                </form>
+                            </p>
+                            <br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
     <!-- Footer -->

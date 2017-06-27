@@ -1,6 +1,6 @@
 <?php
 	include ('../conexaoBanco.php');
-
+	
 	$ide = $_POST['ide'];
 	$nameE = $_POST['nameE'];
 	$hora = $_POST['hora'];
@@ -8,6 +8,7 @@
 	$phone2 = $_POST['phone2'];
 
 	$executa= $pdo->query("SELECT * FROM telefone_entregador WHERE Entregador_idEntregador = $ide");
+
 
 	if($executa){
 		$i = 0;
@@ -22,7 +23,7 @@
 
 	if($nameE != '')
 		$pdo->query("UPDATE entregador SET Nome = '$nameE' WHERE idEntregador = $ide");
-
+	
 	if($hora != '')
 		$pdo->query("UPDATE entregador SET HorarioEntrega = '$hora' WHERE idEntregador = $ide");
 
