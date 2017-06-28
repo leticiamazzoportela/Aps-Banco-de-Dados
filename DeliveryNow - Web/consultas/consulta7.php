@@ -83,7 +83,7 @@
         echo "</section>";
     }
     else if(count($executa) == 0){
-        echo "<script> alert('Não existem itens correspondentes à consulta!!!'); window.location.assign('../index.html#complexas'); </script>";
+        echo "<script> alert('Não existem itens correspondentes à consulta!'); window.location.assign('../index.html#complexas'); </script>";
         print_r($pdo->errorInfo());
     }
 
