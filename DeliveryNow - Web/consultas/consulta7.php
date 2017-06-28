@@ -70,7 +70,7 @@
         echo "<div class=container>";
         echo        "<div class=row>";
         echo            "<div class=col-lg-12 text-center>";
-        echo                "<h4>Consulta 9</h4>";
+        echo                "<h4>Consulta 7</h4>";
             
         foreach($executa as $resultado){
             print "idProduto: ".$resultado['idProduto'].";"."<br>";
