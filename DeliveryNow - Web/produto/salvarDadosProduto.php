@@ -13,6 +13,6 @@
 	if($CnpjF != '')
 		$pdo->query("UPDATE produto SET Fornecedor_CNPJ = '$CnpjF' WHERE idProduto = $idProduto");
 	
-	//echo ("<script>alert('Dados alterados com sucesso!');window.location.assign('../index.html');</script>");
+	echo ("<script>alert('Dados alterados com sucesso!');window.location.assign('../index.html#produto');</script>");
 
 ?>

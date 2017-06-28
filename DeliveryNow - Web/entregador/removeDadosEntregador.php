@@ -4,7 +4,7 @@
 	$ide = $_POST['ide'];
 
 	if($pdo->query("DELETE FROM entregador WHERE idEntregador = $ide") && $pdo->query("DELETE FROM telefone_entregador WHERE Entregador_idEntregador = $ide")){
-		echo ("<script>alert('Dados removidos com sucesso!');window.location.assign('../index.html');</script>");
+		echo ("<script>alert('Dados removidos com sucesso!');window.location.assign('../index.html#entregador');</script>");
 	}
 	else{
 		print "Falha na exclusão";

@@ -16,6 +16,6 @@
 	if($ano != '')
 		$pdo->query("UPDATE veiculo SET AnoFabricacao = '$ano' WHERE Placa = $placa");
 	
-	echo ("<script>alert('Dados alterados com sucesso!');window.location.assign('../index.html');</script>");
+	echo ("<script>alert('Dados alterados com sucesso!');window.location.assign('../index.html#veiculo');</script>");
 
 ?>

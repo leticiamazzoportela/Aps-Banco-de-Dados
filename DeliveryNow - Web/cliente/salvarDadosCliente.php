@@ -45,6 +45,6 @@
 	if($phone2 != '')
 		$pdo->query("UPDATE telefone_cliente SET NroTelefone = '$phone2' WHERE Cliente_idCliente = $idCliente AND NroTelefone = $n2");
 	
-	echo ("<script>alert('Dados alterados com sucesso!');window.location.assign('../index.html');</script>");
+	echo ("<script>alert('Dados alterados com sucesso!');window.location.assign('../index.html#cliente');</script>");
 
 ?>

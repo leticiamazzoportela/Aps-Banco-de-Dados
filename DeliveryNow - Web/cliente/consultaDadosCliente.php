@@ -56,28 +56,29 @@
 	$executa= $pdo->query("SELECT * FROM cliente c, telefone_cliente t WHERE c.idCliente = t.Cliente_idCliente");
 	
 	if($executa){
+        echo "<section id='portfolio'>";
+        echo "<div class=container>";
+        echo        "<div class=row>";
+        echo            "<div class=col-lg-12 text-center>";
+        echo                "<h4>Dados de Clientes</h4>";
+
 		foreach($executa as $resultado){
-			echo "<section id='portfolio'>";
-			echo "<div class=container>";
-			echo		"<div class=row>";
-			echo			"<div class=col-lg-12 text-center>";
-			echo				"<h4>Cliente</h4>";
-									print "idCliente: ".$resultado['idCliente'].";"."<br>";
-									print "Nome: ".$resultado['Nome'].";"."<br>";
-									print "Bairro: ".$resultado['Bairro'].";"."\t";
-									print "Rua: ".$resultado['Rua'].";"."\t";
-									print "Numero: ".$resultado['Numero'].";"."<br>";
-									print "Email: ".$resultado['Email']."<br><br>";
-                                    print "Telefone: ".$resultado['NroTelefone'].";"."\t";
-			echo			"</div>";
-			echo		"</div>";
-			echo	"</div>";
-			echo "</section>";
-        
+			print "idCliente: ".$resultado['idCliente'].";"."<br>";
+			print "Nome: ".$resultado['Nome'].";"."<br>";
+			print "Bairro: ".$resultado['Bairro'].";"."<br>";
+			print "Rua: ".$resultado['Rua'].";"."<br>";
+			print "Numero: ".$resultado['Numero'].";"."<br>";
+			print "Email: ".$resultado['Email'].";"."<br>";
+            print "Telefone: ".$resultado['NroTelefone'].";"."<br><br>";
 		}
+
+        echo            "</div>";
+        echo        "</div>";
+        echo    "</div>";
+        echo "</section>";
 	}
 	else if(count($executa) == 0){
-		echo "<script> alert('Não existem itens cadastrados'); window.location.assign('../index.html'); </script>";
+		echo "<script> alert('Não existem itens cadastrados'); window.location.assign('../index.html#cliente'); </script>";
 		print_r($pdo->errorInfo());
 	}
 

@@ -75,7 +75,7 @@
         echo "</section>";
 	}
 	else if(count($executa) == 0){
-		echo "<script> alert('Não existem itens cadastrados'); window.location.assign('../index.html'); </script>";
+		echo "<script> alert('Não existem itens cadastrados'); window.location.assign('../index.html#veiculo'); </script>";
 		print_r($pdo->errorInfo());
 	}
 

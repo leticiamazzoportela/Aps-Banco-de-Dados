@@ -11,7 +11,7 @@
 		$executa3 = $pdo->query("INSERT INTO telefone_entregador(Entregador_idEntregador, NroTelefone) VALUES ('$_POST[ide]', '$_POST[phone2]')");		
 
 	if(($executa1 && $executa2) || $executa3) {
-		echo ("<script>alert('Dados inseridos com sucesso!');window.location.assign('../index.html');</script>");
+		echo ("<script>alert('Dados inseridos com sucesso!');window.location.assign('../index.html#entregador');</script>");
 	}
 	else{
 		print_r($pdo->errorInfo());
